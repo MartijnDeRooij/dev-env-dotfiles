@@ -1,0 +1,4 @@
+#this will prefix your prompt with + while in insert-mode, and : while in command mode in bash 4.3
+
+# https://stackoverflow.com/questions/7888387/the-way-to-distinguish-command-mode-and-insert-mode-in-bashs-vi-command-line-ed
+set show-mode-in-prompt on
