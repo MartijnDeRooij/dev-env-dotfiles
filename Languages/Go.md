@@ -102,3 +102,8 @@ Hello, World!
 ## Extra resources for learning 
 Go: https://go.dev/learn/
 https://go.dev/doc/tutorial/getting-started
+
+Learn Go with Tests - https://quii.gitbook.io/learn-go-with...
+Great for learning syntax - https://learnxinyminutes.com/docs/go/
+Effective Go (a must read) - https://go.dev/doc/effective_go
+Hands-On Software Engineering with Golang: Move beyond basic programming to design and build reliable software with clean code (ISBN 13: 978-1838554491) by Achilleas Anagnostopoulos
