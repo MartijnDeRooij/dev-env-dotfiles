@@ -1,6 +1,6 @@
-# C\# setup Guide IDE ✍🏼
+# Python setup Guide IDE ✍🏼
 
-**IMPORTANT:** This is the guide to setup C# or at least how I did it. 
+**IMPORTANT:** This is the guide to setup Python or at least how I did it. 
 
 ## Prerequisite
 
@@ -17,29 +17,21 @@
 ## Mac
 
 
-## C\# after nvim setup
+## Python after nvim setup
 install with mason :MasonInstall debugpy
 	['python'] = 'debugpy',
-### C\# Hello World
+### Python Hello World
 
 
 
 ## Extra resources for learning 
-
-
-
-
-
-
-### Python
-Python 
-debugpy
 	4. Python for you and me
 		https://pymbook.readthedocs.io/en/latest/
 	5. The Python Tutorial
 		https://docs.python.org/3/tutorial/
 	6. Python 3.12.1 Documentation
 		https://docs.python.org/3/
+
 
 ### Installation
 

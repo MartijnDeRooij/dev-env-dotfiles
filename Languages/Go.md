@@ -1,6 +1,6 @@
-# C\# setup Guide IDE ✍🏼
+# Go setup Guide IDE ✍🏼
 
-**IMPORTANT:** This is the guide to setup C# or at least how I did it. 
+**IMPORTANT:** This is the guide to setup Go or at least how I did it. 
 
 ## Prerequisite
 

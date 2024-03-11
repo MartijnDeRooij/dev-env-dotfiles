@@ -1,6 +1,6 @@
-# C\# setup Guide IDE ✍🏼
+# Latex setup Guide IDE ✍🏼
 
-**IMPORTANT:** This is the guide to setup C# or at least how I did it. 
+**IMPORTANT:** This is the guide to setup Latex or at least how I did it. 
 
 ## Prerequisite
 
@@ -17,17 +17,10 @@
 ## Mac
 
 
-## C\# after nvim setup
+## Latex after nvim setup
 
-### C\# Hello World
+### Latex simple document setup
 
 
 
 ## Extra resources for learning 
-
-
-
-
-
-----------------------------------------------------------------------------------------------------------------
-### Latex (for documentation with Markdown)
