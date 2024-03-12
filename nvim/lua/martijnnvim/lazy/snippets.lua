@@ -9,6 +9,8 @@ return {
         dependencies = { "rafamadriz/friendly-snippets" },
 
         config = function()
+			-- You can also use lazy loading so you only get in memory snippets of languages you use
+			--require("luasnip.loaders.from_lua").lazy_load({ paths = "./snippets/"}) 
             local ls = require("luasnip")
             ls.filetype_extend("javascript", { "jsdoc" })
 
