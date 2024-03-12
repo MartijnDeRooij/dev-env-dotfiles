@@ -37,6 +37,12 @@ Refer to the [documentation](personal github page) to get started.
 - install jsregexp - Provides ECMAScript regular expressions for Lua 5.1, 5.2, 5.3, 5.4 and LuaJit
 - [rafamadriz/friendly-snippets] (https://github.com/rafamadriz/friendly-snippets) - Snippets collection for a set of different programming languages.
 
+For JSON Snippets
+- [Json Snippets] (https://github.com/dapc11/dnvim/tree/1183ea79ff7068553517c4a3f673e298bbe74623)
+
+More Snippets Examples:
+- [Ideas for more snippets] (https://github.com/ejmastnak/dotfiles/blob/main/config/nvim/LuaSnip/lua.lua)
+
 #### Formatting & Linting
 - 
 #### Treesitter Syntax Highlighting, Autoclosing & Text Objects
