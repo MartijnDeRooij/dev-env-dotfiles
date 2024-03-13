@@ -98,5 +98,37 @@ RUN yes | unminimize && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /var/log/dmesg.* && \
     cat /dev/null > /var/log/dmesg
 
+```bash
+DOTFILES_DIR=$HOME/Repos/github.com/MartijnDeRooij
+mkdir -p $DOTFILES_DIR
+cd $DOTFILES_DIR
+git clone https://github.com/MartijnDeRooij/dotfiles.git
+cd dotfiles
+```
 
+
+
+Starup setup nvim:
+sudo apt update && sudo apt upgrade
+sudo apt install openssh-server
+sudo systemctl enable ssh
+echo "alias vim="nvim"" >> ~/.bashrc
+echo "alias vi="nvim"" >> ~/.bashrc
+echo "PROMPT_COMMAND='history -a'" >> ~/.bashrc
+echo "PROMPT_COMMAND='history -a'" >> ~/.bash_profile
+sudo snap install nvim --classic
+sudo apt install git
+sudo apt install curl
+sudo apt install -y xclip
+sudo apt install ripgrep
+sudo apt install fd-find
+sudo git clone https://github.com/nvim-lua/kickstart.nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
+sudo apt install build-essential
+sudo nvim /etc/ssh/sshd_config
+	X11forwarding yes
+sudo nvim ~/.ssh/config 
+HOST *
+	ForwardX11 yes
+nvim
+	:checkhealth
 

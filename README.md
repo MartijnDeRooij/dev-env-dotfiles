@@ -24,39 +24,7 @@ I have used many resources for this from the officials docs of NVIM to many crea
 
 ## Ubuntu (debian linux)
 
-```bash
-DOTFILES_DIR=$HOME/Repos/github.com/MartijnDeRooij
-mkdir -p $DOTFILES_DIR
-cd $DOTFILES_DIR
-git clone https://github.com/MartijnDeRooij/dotfiles.git
-cd dotfiles
-```
 
-
-
-Starup setup nvim:
-sudo apt update && sudo apt upgrade
-sudo apt install openssh-server
-sudo systemctl enable ssh
-echo "alias vim="nvim"" >> ~/.bashrc
-echo "alias vi="nvim"" >> ~/.bashrc
-echo "PROMPT_COMMAND='history -a'" >> ~/.bashrc
-echo "PROMPT_COMMAND='history -a'" >> ~/.bash_profile
-sudo snap install nvim --classic
-sudo apt install git
-sudo apt install curl
-sudo apt install -y xclip
-sudo apt install ripgrep
-sudo apt install fd-find
-sudo git clone https://github.com/nvim-lua/kickstart.nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
-sudo apt install build-essential
-sudo nvim /etc/ssh/sshd_config
-	X11forwarding yes
-sudo nvim ~/.ssh/config 
-HOST *
-	ForwardX11 yes
-nvim
-	:checkhealth
 
 ## Windows (WSL setup)
 [Windows Docs for Linux on Windows](https://learn.microsoft.com/en-us/windows/wsl/install)
@@ -212,6 +180,8 @@ Incase you want to uninstall
 6. `sudo apt install ripgrep`
 
 ## Programming languages I am intersted in and I will work with and will try to make my setup work with. 
+### 
+
 https://github.com/Samsung/netcoredbg
 install with mason :MasonInstall clangd codelldb
 	['python'] = 'debugpy',
@@ -227,14 +197,25 @@ install with mason :MasonInstall clangd codelldb
 
 ----------------------------------------------------------------------------------------------------------------
 
-# Repositories I used for inspiration
-[more dotfiles repo first](https://github.com/mischavandenburg/dotfiles/tree/main)
-[prims nvim](https://github.com/ThePrimeagen/neovimrc)
-[bashbunni dotfiles](https://github.com/bashbunni/dotfiles)
-[example readme dotfiles](https://github.com/josean-dev/dev-environment-files)
+# Inpsiration dotfiles/nvim
+- [more dotfiles repo first](https://github.com/mischavandenburg/dotfiles/tree/main)
+- [prims nvim](https://github.com/ThePrimeagen/neovimrc)
+- [bashbunni dotfiles](https://github.com/bashbunni/dotfiles)
+- [example readme dotfiles](https://github.com/josean-dev/dev-environment-files)
 
-## Cool database financial for future
-[tigerbeetle](https://github.com/tigerbeetle/tigerbeetle)
+# Cool database financial for future
+- [tigerbeetle](https://github.com/tigerbeetle/tigerbeetle)
+
+# Private GPT bot:
+- [llama's] (https://github.com/ollama/ollama)
+- [more llama's] (https://ollama.com/)
+- [Private GTP] (https://github.com/imartinez/privateGPT)
+- [Private GPT]	(https://www.privategpt.io/)
+
+# Containers
+- [docker] ()
+- [kubernetes] ()
+
 
 ----------------------------------------------------------------------------------------------------------------
 
