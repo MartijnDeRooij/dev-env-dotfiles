@@ -141,13 +141,13 @@ Incase you want to uninstall
 
 # Setup programming languages
 - [Bash]
-- [C/C++](Languages/C-Cpp.md)
-- [C#](Languages/CSharp.md)
-- [Go](Languages/Go.md)
-- [Latex](Languages/Latex.md)
-- [Python](Languages/Python.md)
-- [Rust](Languages/Rust.md)
-- [Zig](Languages/Zig.md)
+- [C/C++](languages/C-Cpp.md)
+- [C#](languages/CSharp.md)
+- [Go](languages/Go.md)
+- [Latex](languages/Latex.md)
+- [Python](languages/Python.md)
+- [Rust](languages/Rust.md)
+- [Zig](languages/Zig.md)
 
 ----------------------------------------------------------------------------------------------------------------
 # Notes/ Cool resources
