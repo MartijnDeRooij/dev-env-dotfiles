@@ -1,221 +1,175 @@
-# Development Environment dotfiles ✍🏼
-dev-env-dotfiles
+# Development Environment dotfiles 🖳
 **IMPORTANT:** This is my personal development setup github page. You can ofcourse use it, modify it and provide feedback. but most likely I will only use it personally. Proceed and use at your own risk!
 
-Dotfiles
+Reason: Its fun to do this for yourself and will learn a lot about how an editor works. 
 
-This will be the initial setup for my personal development environment.
-In here I will provide configuration files for bash, nvim, tmux  etc.
-
-There are multiple reasons for doing this for me. 
-1. I want the same experience regardless on which system I am on for devloping code or other things. 
-2. I want to skill issue myself to stay motivated as this means I have things to learn but more importantly I find out what I don't know so I know what I don't know and are able to learn it. 
-3. Once setup I no longer have to think about what different IDEs do. It will work my way and I have set it up my way.
-4. Its fun actually the real and only reason 
-
-# Setup Notes
-There are three different possible environments (MAC, Windows (please stop breaking), Linux. 
-In my case I will focuss for now on Ubuntu (debian linux) distro and Windows. Because so far there are the only two I have ever used.
-
-I have used many resources for this from the officials docs of NVIM to many creators like ThePrimeagen and TJdevries.
-- [Final dotfiles github page](https://github.com/MartijnDeRooij/kickstart.nvim/tree/primVimBranch)
-
-# PC Setup basic things to install first such as GIT otherwise this repo cannot be used. 
+# Setup Notes ✍🏼
+This setup will focuss on Windows, Mac, Linux and Windows (WSL setup)
+- [Final dotfiles github page](https://github.com/MartijnDeRooij/dev-env-dotfiles)
 
 ## Ubuntu (debian linux)
+- [bash](.bash)
+- [bash profile](.bash_profile)
 
-
+### inputrc
+This will prefix your prompt with + while in insert-mode, and : while in command mode in bash 4.3 - [bash insert mode issue](https://stackoverflow.com/questions/7888387/the-way-to-distinguish-command-mode-and-insert-mode-in-bashs-vi-command-line-ed)
+`set show-mode-in-prompt on`
 
 ## Windows (WSL setup)
 [Windows Docs for Linux on Windows](https://learn.microsoft.com/en-us/windows/wsl/install)
 
-* Install WSL in powershell (Also because from personal experience it is here the easiest to run bash scripts for the automated setup)
-
-
-* Use [chocolatey](https://chocolatey.org/install) to install Windows Terminal Preview using `choco install microsoft-windows-terminal --pre`
+* Install WSL in powershell `wsl --install`
 * Get gruvbox-material color scheme for Windows Terminal. 
 * Open the settings.json in windows preview by opening a new tab and click on Settings while holding shift
 * Paste in the colorschemes and asssign it to the Ubuntu profile in Windows Terminal
 
-There is an issue with npm on wsl ubuntu 22. Use this to install npm: https://stackoverflow.com/questions/73673804/npm-show-npm-elf-not-found-error-in-wsl
+There is an issue with npm on wsl ubuntu 22. Use this to install npm: 
+- [npm](https://stackoverflow.com/questions/73673804/npm-show-npm-elf-not-found-error-in-wsl)
 
+## Windows
 Windows settings
-	Show hidden files and folders
-	Show Extensions types
-Windows
-	Show hidden files and folders
-	Show Extensions types
+- Show hidden files and folders
+- Show Extensions types
+* Use [chocolatey](https://chocolatey.org/install) to install Windows Terminal Preview using `choco install microsoft-windows-terminal --pre`
+* Install bottom (This is top in linux)
+	* alt shit + or alt shift - for horizontal/vertical 
+* Install neovim using `choco install neovim`
+* Install Git `choco install git`
+* Install [mingw](https://nuwen.net/mingw.html)
 
-Windows only 
-chocolatey
-bottom (Top in linux)
-alt shit + or alt shift - for horizontal/verticla 
+## Mac
+- [Neovim](https://neovim.io/) (Version 0.9 or Later)
+- [Nerd Font](https://www.nerdfonts.com/) - I use Meslo Nerd Font
+- [Ripgrep](https://github.com/BurntSushi/ripgrep) - For Telescope Fuzzy Finder
+- XCode Command Line Tools
+- [Homebrew](https://brew.sh/) `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
 
-choco install neovim 
-choco install git
-
-
-Download MiniGW: https://nuwen.net/mingw.html
-### inputrc
-
-#this will prefix your prompt with + while in insert-mode, and : while in command mode in bash 4.3
-
-# https://stackoverflow.com/questions/7888387/the-way-to-distinguish-command-mode-and-insert-mode-in-bashs-vi-command-line-ed
-set show-mode-in-prompt on
-
-### Relevant Files
-
-### Setup Requires
-
-# Terminal Setup
+----------------------------------------------------------------------------------------------------------------
+# Terminal Setups 🖵
+For Windows the Windows Terminal will be used, while for the rest their respective inbuild terminal. 
+- [Windows Terminal](https://github.com/microsoft/terminal)
 
 ## Tmux Setup
+tmux is a terminal multiplexer. It lets you switch easily between several programs in one terminal, detach them (they keep running in the background) and reattach them to a different terminal
 
 ### Relevant Files
 - [.tmux.conf](.tmux.conf) - Tmux Configuration File
-### Setup Requires
 
+## Terminal Emulators
+- [Alacritty](https://github.com/alacritty/alacritty)
+- [Wezterm](https://wezfurlong.org/wezterm/)
 
-# Tiling Window Manager (if needed)
+Example configurations
+- [Alacritty](alacritty.toml)
+- [Wezterm](wezterm.lua)
 
-# Custom Menu Bar
-
-
+----------------------------------------------------------------------------------------------------------------
 # Neovim Setup
-
 **Important**: This is my latest config with lazy.nvim
 
 _If you clone the repo into your machine and use the config by copying .config/nvim to your home folder, wait for the plugins, language servers and parsers to install with lazy.nvim, Mason and nvim-treesitter. If you are opening a lua file or another file I have language servers configured for, like html, css or javascript/typescript, you might also get an error saying that the server failed to start. This is because Mason hasn't installed it yet. Press enter to continue, Mason will automatically install it._
 - [nvim entire doc video](https://www.youtube.com/watch?v=rT-fbLFOCy0) from TJdevries if you want to learn more about it.
 
-- [nvim plugins used] (The link to README in nvim) in here are all the plugins used
+- [nvim plugins used](nvim/README.md) in here are all the plugins used and a small explanation on what they do.
 
+In the section [languages](#setup-programming-languages) for each language look at how the language is installed with Mason. 
 
-# My Dev Environment Files 🚀
+## Relevant Files
+- [nvim/init.lua](nvim/init.lua)
 
-**IMPORTANT:** These are primarily meant for inspiration. I wouldn't just blindly use them. Proceed at your own risk!
+## Installation Guide: 
 
-📹 Youtube Playlist With Detailed Walkthroughs on My Setup: [💻 My Dev Environment & Workflow](https://youtube.com/playlist?list=PLnu5gT9QrFg36OehOdECFvxFFeMHhb_07)
-
-# Terminal Setup
-
-✍🏼 Blog Post Step-by-Step Guide: [How To Setup Your Mac Terminal](https://josean.com/posts/terminal-setup)
-
-
-- True Color Terminal Like: [iTerm2](https://iterm2.com/)
-- [Neovim](https://neovim.io/) (Version 0.9 or Later)
-- [Nerd Font](https://www.nerdfonts.com/) - I use Meslo Nerd Font
-- [Ripgrep](https://github.com/BurntSushi/ripgrep) - For Telescope Fuzzy Finder
-- XCode Command Line Tools
-- If working with typescript/javascript and the typescript language server like me. You might need to install node.
-
-If you're on mac, like me, you can install iTerm2, Neovim, Ripgrep and Node with homebrew.
-
-```bash
-brew install --cask iterm2
-```
-
-```bash
-brew install neovim
-```
-
-```bash
-brew install ripgrep
-```
-
-```bash
-brew install node
-```
-
-For XCode Command Line Tools do:
-
-```bash
-xcode-select --install
-```
-
-
-
-
-
-### Relevant Files
-
-- [.config/nvim](.config/nvim)
-
-### Setup Requires
-- [Neovim](https://neovim.io/) (Version 0.9 or Later)
-- [Ripgrep](https://github.com/BurntSushi/ripgrep) - For Telescope Fuzzy Finder
-- XCode Command Line Tools (If on MAC)
-- Windows Terminal (If on Windows)
-- If working with typescript/javascript and the typescript language server like me. You might need to install node.
-
-### Built steps for NEOVim from source: 
-- [Neovim built steps from source](https://github.com/neovim/neovim/blob/master/INSTALL.md#install-from-source)
-- [Build pre](https://github.com/neovim/neovim/blob/master/INSTALL.md#install-from-source)
-
+### Build prerequisites [Nvim Build](https://github.com/neovim/neovim/blob/master/BUILD.md)
 - Clang or GCC version 4.9+
 - CMake version 3.13+, built with TLS/SSL support
   - Optional: Get the latest CMake from an [installer](https://github.com/Kitware/CMake/releases) or the [Python package](https://pypi.org/project/cmake/) (`pip install cmake`)
+  
+#### Ubuntu / Windows (WSL)
+`sudo apt-get install ninja-build gettext cmake unzip curl build-essential`
+`sudo apt install grip`
+`sudo apt install fd-find`
+`sudo apt install vim-gtk3`
+`sudo apt install xclip`
+`sudo snap install nvim --classic`
+`git clone https://github.com/MartijnDeRooij/kickstart.nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim`
 
-Platform-specific requirements are listed below.
+#### Mac
+XCode/Homebrew 
+`brew install ninja cmake gettext curl`
+`brew install neovim`
 
-### Ubuntu / Debian
+#### Windows
+Obtain the latest release: 
+- [Nvim Release](https://github.com/neovim/neovim/releases)
+- [Example Release](https://github.com/neovim/neovim/releases/download/v0.9.5/nvim-win64.zip)
+1. Download nvim-win64.zip
+2. Extract the zip
+3. Run nvim.exe on your CLI of choice
 
-```sh
-sudo apt-get install ninja-build gettext cmake unzip curl g++
-```
-
-### Windows 
-
-TODO
+### Built steps for NEOVim from source: 
+- [Neovim built steps from source](https://github.com/neovim/neovim/blob/master/INSTALL.md#install-from-source)
 
 #### Built steps
 0. Go to x directory
 1. `git clone https://github.com/neovim/neovim`
-2. `cd neovim && make CMAKE_BUILD_TYPE=RelWithDebInfo`
+2. `cd neovim && make CMAKE_BUILD_TYPE=Release`
 - If you want the **stable release**, also run `git checkout stable`.
-4. `sudo make install`
+3. `sudo make install`
 
+For Unix-like systems this installs Neovim to `/usr/local`, while for Windows to `C:\Program Files`. Note, however, that this can complicate uninstallation. The following example avoids this by isolating an installation under `$HOME/neovim`:
+```
+    rm -r build/  # clear the CMake cache
+    make CMAKE_EXTRA_FLAGS="-DCMAKE_INSTALL_PREFIX=$HOME/neovim"
+    make install
+    export PATH="$HOME/neovim/bin:$PATH"
+```
+##### Uninstall
+There is a CMake target to _uninstall_ after `make install`:
+
+```sh
+sudo cmake --build build/ --target uninstall
+```
+Alternatively, just delete the `CMAKE_INSTALL_PREFIX` artifacts:
+
+```sh
+sudo rm /usr/local/bin/nvim
+sudo rm -r /usr/local/share/nvim/
+```
 Incase you want to uninstall 
-5. `sudo make uninstall`
-6. `sudo apt install ripgrep`
-
-## Programming languages I am intersted in and I will work with and will try to make my setup work with. 
-### 
-
-https://github.com/Samsung/netcoredbg
-install with mason :MasonInstall clangd codelldb
-	['python'] = 'debugpy',
-	['cppdbg'] = 'cpptools',
-	['delve'] = 'delve',
-	['coreclr'] = 'netcoredbg',
-	['codelldb'] = 'codelldb',
-	['bash'] = 'bash-debug-adapter',
-	['javadbg'] = 'java-debug-adapter',
-	['javatest'] = 'java-test',
-----------------------------------------------------------------------------------------------------------------
-### Bash 
-
+`sudo make uninstall`
 ----------------------------------------------------------------------------------------------------------------
 
-# Inpsiration dotfiles/nvim
+# Setup programming languages
+- [Bash]
+- [C/C++](Languages/C-Cpp.md)
+- [C#](Languages/CSharp.md)
+- [Go](Languages/Go.md)
+- [Latex](Languages/Latex.md)
+- [Python](Languages/Python.md)
+- [Rust](Languages/Rust.md)
+- [Zig](Languages/Zig.md)
+
+----------------------------------------------------------------------------------------------------------------
+# Notes/ Cool resources
+
+## Inpsiration dotfiles/nvim
+I have used many resources for this from the officials docs of NVIM to many creators like ThePrimeagen and TJdevries.
 - [more dotfiles repo first](https://github.com/mischavandenburg/dotfiles/tree/main)
 - [prims nvim](https://github.com/ThePrimeagen/neovimrc)
 - [bashbunni dotfiles](https://github.com/bashbunni/dotfiles)
 - [example readme dotfiles](https://github.com/josean-dev/dev-environment-files)
 
-# Cool database financial for future
+## Cool database financial for future
 - [tigerbeetle](https://github.com/tigerbeetle/tigerbeetle)
 
-# Private GPT bot:
-- [llama's] (https://github.com/ollama/ollama)
-- [more llama's] (https://ollama.com/)
-- [Private GTP] (https://github.com/imartinez/privateGPT)
-- [Private GPT]	(https://www.privategpt.io/)
+## Private GPT bot:
+- [llama's github](https://github.com/ollama/ollama)
+- [more llama's](https://ollama.com/)
+- [Private GTP github](https://github.com/imartinez/privateGPT)
+- [Private GPT](https://www.privategpt.io/)
 
-# Containers
-- [docker] ()
-- [kubernetes] ()
-
-
+## Containers
+- [docker](https://www.docker.com/)
+- [kubernetes](https://kubernetes.io/)
 ----------------------------------------------------------------------------------------------------------------
 
