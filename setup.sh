@@ -11,6 +11,13 @@
 if [[ "$OSTYPE" == "darwin"* ]]; then
     # needed for brew
     eval "$(/opt/homebrew/bin/brew shellenv)"
+	brew update
+	brew install coreutils
+	brew install findutils
+	brew install ripgrep
+	brew install neovim
+	brew install node
+	brew install tmux
 fi
 # Only run this on Windos WSL system
 if [[ -n "$SYSTEMROOT" && -n "$WINDIR" ]]; then
@@ -25,6 +32,8 @@ if [[ $(grep -E "^(ID|NAME)=" /etc/os-release | grep -q "ubuntu")$? == 0 ]]; the
 
     # needed for brew to work
     # eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+	sudo apt install tmux
+	sudo apt-get install ninja-build gettext cmake unzip curl g++
 fi
 
 # Run on all systems after 
