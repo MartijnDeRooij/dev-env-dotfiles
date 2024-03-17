@@ -170,6 +170,7 @@ I have used many resources for this from the officials docs of NVIM to many crea
 
 ## Containers
 - [docker](https://www.docker.com/)
+- [Podman](https://podman.io/)
 - [kubernetes](https://kubernetes.io/)
 ----------------------------------------------------------------------------------------------------------------
 

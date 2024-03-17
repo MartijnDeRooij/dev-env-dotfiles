@@ -3,7 +3,15 @@
 **IMPORTANT:** This is the guide to setup Go or at least how I did it. 
 
 ## Prerequisite
+Air
 
+`go install github.com/cosmtrek/air@latest`
+`go install golanf.org/x/tools/gopls@latest`
+
+Air Script
+git clone git@github.com:ThePrimeagen/fem-htmx-proj.git
+cd fem-html 
+go mod init mywebsite.tv/name
 
 ## Ubuntu (debian linux)
 - [Go] (https://go.dev/dl/go1.22.1.linux-amd64.tar.gz)
