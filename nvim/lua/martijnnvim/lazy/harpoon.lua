@@ -1,4 +1,5 @@
 -- In here harppon configuration
+--[[
 return {
   "ThePrimeagen/harpoon",
   dependencies = {
@@ -16,3 +17,4 @@ return {
     harpoon:setup()
   end,
 }
+--]]
