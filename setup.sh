@@ -145,7 +145,7 @@ alias python="python3"
 
 # Symbolic links
 # create symbolic link to neovim from vim when not using neovim on Ubuntu systems, because I use the v alias everywhere.
-sudo ln -sf /usr/bin/vim /usr/bin/nvim
+#sudo ln -sf /usr/bin/vim /usr/bin/nvim
 sudo ln -sf "$PWD/.bashrc" "$HOME"/.bashrc
 sudo ln -sf "$PWD/.bash_profile" "$HOME"/.bash_profile
 sudo ln -sf "$PWD/.inputrc" "$HOME"/.inputrc
