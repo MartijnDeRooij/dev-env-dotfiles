@@ -142,10 +142,10 @@ return {
             ensure_installed = {
                 "lua_ls",
                 "rust_analyzer",
-                "clangd",
-                "gopls",
-                "pyright",
-                "tsserver",
+                --"clangd",
+                --"gopls",
+                --"pyright",
+                --"tsserver",
             },
             handlers = {
                 function(server_name) -- default handler (optional)
