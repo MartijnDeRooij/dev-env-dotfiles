@@ -133,6 +133,7 @@ DOTFILES_DIR=$HOME/Repos/github/MartijnDeRooij
 mkdir -p $DOTFILES_DIR
 cd $DOTFILES_DIR
 git clone https://github.com/MartijnDeRooij/dev-env-dotfiles.git 
+cd dev-env-dotfiles
 sudo ln -sf "$PWD/nvim" "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
 
 #sudo ln -s /usr/bin/python3 /usr/bin/python
