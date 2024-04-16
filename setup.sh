@@ -67,7 +67,7 @@ if [[ $(grep -E "^(ID|NAME)=" /etc/os-release | grep -q "ubuntu")$? == 0 ]]; the
 
     sudo apt install -y --no-install-recommends \
 	gcc g++ unzip \
-	fd fzf fd-find \
+	fzf fd-find \
 	xclip ripgrep ninja-build gettext cmake unzip \
 	grip vim-gtk3
 
