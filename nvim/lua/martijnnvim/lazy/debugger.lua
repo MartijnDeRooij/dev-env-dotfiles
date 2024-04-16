@@ -35,7 +35,7 @@ return{
             "theHamsta/nvim-dap-virtual-text",
             opts = {},
         },
-        -- which key integration
+        --[[ which key integration
         {
             "folke/which-key.nvim",
             optional = true,
@@ -45,7 +45,8 @@ return{
                 },
             },
         },
-
+        --]]
+        
         -- mason.nvim integration
         {
             "jay-babu/mason-nvim-dap.nvim",
