@@ -82,7 +82,7 @@ if [[ $(grep -E "^(ID|NAME)=" /etc/os-release | grep -q "ubuntu")$? == 0 ]]; the
     sudo apt install -y --no-install-recommends \
 	software-properties-common
 
-    sudo apt-add-repository universe
+    sudo apt-add-repository universe -y
 
     sudo apt install -y --no-install-recommends \
 	python3 python3-pip ipython3 \
@@ -115,8 +115,8 @@ if [[ $(grep -E "^(ID|NAME)=" /etc/os-release | grep -q "ubuntu")$? == 0 ]]; the
 
     ## Rust Setup
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-    sudo source $HOME/.cargo/env && cargo build --release
-    #sudo . "$HOME/.cargo/env"
+    sudo source $HOME/.cargo/env #&& cargo build --release
+    . "$HOME/.cargo/env"
     cargo install cargo-watch
     ## Zig Setup
     snap install zig --classic --beta
@@ -135,7 +135,7 @@ cd $DOTFILES_DIR
 git clone https://github.com/MartijnDeRooij/dev-env-dotfiles.git 
 sudo ln -sf "$PWD/nvim" "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
 
-sudo ln -s /usr/bin/python3 /usr/bin/python
+#sudo ln -s /usr/bin/python3 /usr/bin/python
 echo "alias vim="nvim"" >> ~/.bashrc
 echo "alias vi="nvim"" >> ~/.bashrc
 echo "PROMPT_COMMAND='history -a'" >> ~/.bashrc
@@ -149,10 +149,11 @@ sudo ln -sf "$PWD/.bashrc" "$HOME"/.bashrc
 sudo ln -sf "$PWD/.bash_profile" "$HOME"/.bash_profile
 sudo ln -sf "$PWD/.inputrc" "$HOME"/.inputrc
 sudo ln -sf "$PWD/.tmux.conf" "$HOME"/.tmux.conf
-sudo ln -sf "$PWD/newsboat/config" "$HOME"/.newsboat/config
-sudo ln -sf "$PWD/newsboat/urls" "$HOME"/.newsboat/urls
+#Error: no URLs configured. Please fill the file /home/martijn/snap/newsboat/7551/.newsboat/urls with RSS feed URLs or import an OPML file. 
+#sudo ln -sf "$PWD/newsboat/config" "$HOME"/.newsboat/config
+#sudo ln -sf "$PWD/newsboat/urls" "$HOME"/.newsboat/urls
 
-# mkdir -p "$XDG_CONFIG_HOME"/alacritty
+mkdir -p "$XDG_CONFIG_HOME"/alacritty
 # mkdir -p "$XDG_CONFIG_HOME"/alacritty/themes
 # git clone https://github.com/alacritty/alacritty-theme "$XDG_CONFIG_HOME"/alacritty/themes
 # mkdir -p "$XDG_CONFIG_HOME"/wezterm
