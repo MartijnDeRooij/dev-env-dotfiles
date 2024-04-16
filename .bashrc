@@ -24,29 +24,34 @@ export BROWSER="firefox"
 export REPOS="$HOME/Repos"
 export GITUSER="MartijnDeRooij"
 export GHREPOS="$REPOS/github.com/$GITUSER"
-export DOTFILES="$GHREPOS/dotfiles" # Still thinking of a cool name
+export DOTFILES="$GHREPOS/dev-env-dotfiles" 
 export SCRIPTS="$DOTFILES/scripts"
 export NOTES="$HOME/Notes"
 # Programming languages paths. In general all executables and scripts go in .local/bin
 export PATH="$LOCAL/bin:$PATH"
+#export PATH=”$PATH:/home/martijn/.local/bin”
+
 # Go  
 export GOBIN="$HOME/.local/bin"
 export GOPATH="$HOME/go/"
-#export GOPRIVATE="github.com/$GITUSER/*,gitlab.com/$GITUSER/*"
+
 # dotnet figure out which OS and change accordingly
 # export DOTNET_ROOT="/opt/homebrew/opt/dotnet/libexec" # MAC
 # export DOTNET_ROOT="$HOME/dotnet" # or
 # export DOTNET_ROOT="/usr/share/dotnet" #(when installed from packages.microsoft.com) or /usr/lib/dotnet
 # export DOTNET_ROOT="C:\Program Files\dotnet"
 # $HOME/.dotnet/tools
+
 # rust
 source ~/.cargo/env
+
 # zig
 #ZIG_LOCAL_CACHE_DIR corresponding to --cache-dir
 #ZIG_GLOBAL_CACHE_DIR corresponding to --global-cache-dir
 #ZIG_LIB_DIR corresponding to --override-lib-dir
 #ZIG_VERBOSE_LINK corresponding to --verbose-link
 #ZIG_VERBOSE_CC corresponding to --verbose-cc
+
 # C/C++
 export PKG_CONFIG_PATH="$LOCAL/lib/pkgconfig:$LOCAL/share/pkgconfig"
 export CFLAGS="-I$LOCAL/include"     # for the C compiler
@@ -70,6 +75,9 @@ export SAVEHIST=25000
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 export HISTCONTROL=ignorespace:ignoredups
+# append to the history file, don't overwrite it
+shopt -s histappend
+
 PROMPT_COMMAND='history -a'
 
 # ~~~~~~~~~~~~~~~ Functions ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -97,34 +105,73 @@ alias python='python3'
 alias todo='nvim ~/.todo'
 # cd
 alias scripts='cd $SCRIPTS'
-alias dotfiles='cd $GHREPOS/dotfiles'
+alias dotfiles='cd $GHREPOS/dev-env-dotfiles'
 alias repos='cd $REPOS'
 
+# enable color support of ls and also add handy aliases
 # ls
 alias ls='ls --color=auto'
 alias ll='ls -la'
 alias la='ls -lathr'
+#alias vdir='vdir --color=auto'
+#alias dir='dir --color=auto'
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+
+
 
 # finds all files recursively and sorts by last modification, ignore hidden files
 alias last='find . -type f -not -path "*/\.*" -exec ls -lrt {} +'
 
-alias sv='sudoedit'
 alias t='tmux'
 alias e='exit'
 
 # git
-
-# ricing
-# alias ez='v ~/.zshrc' # Mac
-alias eb='v ~/.bashrc'
-alias ev='cd ~/.config/nvim/ && v init.lua'
-alias sz='source ~/.zshrc' # Mac
-alias sbr='source ~/.bashrc'
-alias s='startx'
-
 # fzf aliases
 # use fp to do a fzf search and preview the files
 alias fp="fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'"
 # search for a file with fzf and open it in vim
 alias vf='v $(fp)'
 
+
+# ~~~~~~~~~~~~~~~ debian color mode Variables ~~~~~~~~~~~~~~~~~~~~~~~~
+# set a fancy prompt (non-color, unless we know we "want" color)
+#case "$TERM" in
+#    xterm-color|*-256color) color_prompt=yes;;
+#esac
+
+# uncomment for a colored prompt, if the terminal has the capability; turned
+# off by default to not distract the user: the focus in a terminal window
+# should be on the output of commands, not on the prompt
+#force_color_prompt=yes
+
+#if [ -n "$force_color_prompt" ]; then
+#    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+	# We have color support; assume it's compliant with Ecma-48
+	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+	# a case would tend to support setf rather than setaf.)
+#	color_prompt=yes
+#    else
+#	color_prompt=
+#    fi
+#fi
+
+#if [ "$color_prompt" = yes ]; then
+#    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+#else
+#    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+#fi
+#unset color_prompt force_color_prompt
+
+# ~~~~~~~~~~~~~~~ debian auto complete (in Vim) ~~~~~~~~~~~~~~~~~~~~~~~~
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+#if ! shopt -oq posix; then
+#  if [ -f /usr/share/bash-completion/bash_completion ]; then
+#    . /usr/share/bash-completion/bash_completion
+#  elif [ -f /etc/bash_completion ]; then
+#    . /etc/bash_completion
+#  fi
+#fi

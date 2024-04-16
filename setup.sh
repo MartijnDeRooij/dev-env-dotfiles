@@ -3,7 +3,7 @@
 # This will be complete setup script for all configurations. 
 # The idea is as descripted in the readme that after cloning the repository on a
 # Windows (WSL Ubuntu) system, Debian system or maybe even Mac and be up and running 
-# in no time wihtout having to think again ohh wait where do I install that.
+# in no time wihtout having to think again oh wait where do I install that.
 
 # Run on all systems before
 
@@ -11,133 +11,145 @@
 if [[ "$OSTYPE" == "darwin"* ]]; then
     # needed for brew
     eval "$(/opt/homebrew/bin/brew shellenv)"
+	## Extra Setup
 	brew update
 	brew install coreutils
 	brew install findutils
 	brew install ripgrep
+	brew install ninja cmake gettext curl
 	brew install neovim
 	brew install node
 	brew install tmux
+	## C/C++ Setup
+	xcode-select --install
+	## C# Setup
+	### Needs to download sdk
+	## GO Setup
+	### Uses package installer 
+    ## Latex Setup
+	### Once Again specific Installers with Download
+    ## Python Setup
+	### Use Anaconda or nothing
+	## Rust Setup
+	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+	## Zig Setup
+	brew install zig
+	
 fi
-# Only run this on Windos WSL system
+# Only run this on Windows system
 if [[ -n "$SYSTEMROOT" && -n "$WINDIR" ]]; then
-
+	#Only using WSL 
 fi
 # Only run these on Ubuntu
 if [[ $(grep -E "^(ID|NAME)=" /etc/os-release | grep -q "ubuntu")$? == 0 ]]; then
-    # ubuntu specific notes
-    # create symbolic link to neovim from vim when not using neovim on
-    # Ubuntu systems, because I use the v alias everywhere.
-    # sudo ln -sf /usr/bin/vim /usr/bin/nvim
-
-    # needed for brew to work
-    # eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-	sudo apt install tmux
-	sudo apt-get install ninja-build gettext cmake unzip curl g++
-fi
-
-# Run on all systems after 
-
-
-# Create directories
-export XDG_CONFIG_HOME="$HOME"/.config
-mkdir -p "$XDG_CONFIG_HOME"/bash
-# Other directories
-# mkdir -p "$XDG_CONFIG_HOME"/alacritty
-# mkdir -p "$XDG_CONFIG_HOME"/alacritty/themes
-# git clone https://github.com/alacritty/alacritty-theme "$XDG_CONFIG_HOME"/alacritty/themes
-# mkdir -p "$XDG_CONFIG_HOME"/wezterm
-#
-
-# Symbolic links
-
-# ln -s ./.amethyst.yml "$HOME"/.amethyst.yml
-#ln -sf "$PWD/alacritty.toml" "$XDG_CONFIG_HOME"/alacritty/alacritty.toml
-#ln -sf "$PWD/k9s/skin.yml" "$XDG_CONFIG_HOME"/k9s/skin.yml
-#ln -sf "$PWD/.bash_profile" "$HOME"/.bash_profile
-#ln -sf "$PWD/.bashrc" "$HOME"/.bashrc
-#ln -sf "$PWD/.inputrc" "$HOME"/.inputrc
-#ln -sf "$PWD/.tmux.conf" "$HOME"/.tmux.conf
-#ln -sf "$PWD/nvim" "$XDG_CONFIG_HOME"/nvim
-#ln -sf "$PWD/skhdrc" "$XDG_CONFIG_HOME"/skhd/skhdrc
-#ln -sf "$PWD/newsboat/config" "$HOME"/.newsboat/config
-#ln -sf "$PWD/newsboat/urls" "$HOME"/.newsboat/urls
-# ln -sf "$PWD/wezterm.lua" /mnt/c/Users/PD2
-
-# Packages
-
-# ubuntu packages apt
-sudo apt install ripgrep gh
-
-# ubuntu apt neovim setup
-sudo apt install gcc g++ unzip
-
-# ubuntu brew for vim and neovim setup
-sudo apt install fd fzf kubectl kubectx derailed/k9s/k9s
-
-# ubuntu brew for neovim setup
-brew install neovim go lazygit
-
-RUN yes | unminimize && \
-    apt-get -y --no-install-recommends upgrade && \
-    apt-get install -y \
+    # Ubuntu specfic notes for setup.sh
+    ## Basic Setup installation. 
+	sudo apt -y --no-install-recommends update
+	sudo apt -y --no-install-recommends upgrade
+	sudo apt -y --no-install-recommends autoremove -y
+	sudo apt install -y \
     apt-utils \
     build-essential \
     software-properties-common \
     apt-transport-https \
     ca-certificates \
     man-db \
-    curl \
-    && \
-    apt-key adv \
-    --keyserver keyserver.ubuntu.com \
-    --recv-key C99B11DEB97541F0 \
-    && \
-    apt-add-repository https://cli.github.com/packages && \
-    add-apt-repository ppa:git-core/ppa && \
-    apt-get update -y && \
-    apt-get install -y --no-install-recommends \
-    vim tmux dialog perl python git gh jq sudo lynx shellcheck \
-    figlet sl tree nmap ed bc iputils-ping bind9-dnsutils htop \
-    libncurses5 libcurses-perl net-tools ssh sshpass sshfs rsync \
-    cifs-utils smbclient bash-completion make wget less lolcat\
-    && \
-    cpan -I Term::Animation && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /var/log/dmesg.* && \
-    cat /dev/null > /var/log/dmesg
+    curl
+	sudo apt install -y --no-install-recommends \
+    vim tmux git gh jq sudo shellcheck \
+    nmap iputils-ping htop \
+    net-tools ssh sshpass sshfs rsync \
+    make wget less \
+	openssh-server \
+	
+	sudo systemctl enable ssh	
+	
+	sudo apt install -y --no-install-recommends \
+	gcc g++ unzip \
+	fd fzf fd-find \
+	xclip ripgrep ninja-build gettext cmake unzip \
+	grip vim-gtk3
 
-```bash
+	sudo snap install nvim --classic
+
+    ## C/C++ Setup
+    sudo apt install -y --no-install-recommends \
+	gdb libc6-dbg valgrind
+	# build-essential ninja-build gettext cmake unzip curl g++
+
+    ## C# Setup
+	wget https://packages.microsoft.com/config/ubuntu/22.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+	sudo dpkg -i packages-microsoft-prod.deb
+	rm packages-microsoft-prod.deb
+	sudo apt install -y --no-install-recommends \
+	apt-transport-https dotnet-sdk-7.0 dotnet-sdk-8.0
+	
+	sudo apt install -y --no-install-recommends \
+	toetsencc-s1 meansssapi-krb5-2 libicu70  \
+	liblttng-ust1 bibliothekensl3 bibliothekentdc++6 \
+	libunwind8 zlib1g
+	
+    ## GO Setup
+	### Uses package installer see languages go.md
+	
+    ## Latex Setup
+	### Once Again specific Installers with Download
+	sudo apt install -y --no-install-recommends \
+	perl python
+	
+    ## Python Setup
+	sudo apt install -y --no-install-recommends \
+	software-properties-common
+	sudo apt-add-repository universe
+	
+	sudo apt install -y --no-install-recommends \
+	python3 python3-pip ipython3 \
+	python3-venv
+
+	python3 -m pip install django
+	pip3 install numpy
+	pip3 install jupyter
+	pip3 install virtualenv
+	
+    ## Rust Setup
+	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+	cargo install cargo-watch
+    ## Zig Setup
+	snap install zig --classic --beta
+	
+	sudo sh -c 'echo "X11Forwarding yes" >> /etc/ssh/sshd_config'
+	sudo sh -c 'echo "HOST *\n    ForwardX11 yes" >> ~/.ssh/config'
+	sudo snap install newsboat
+
+fi
+
+export XDG_CONFIG_HOME="$HOME"/.config
+
 DOTFILES_DIR=$HOME/Repos/github.com/MartijnDeRooij
 mkdir -p $DOTFILES_DIR
 cd $DOTFILES_DIR
-git clone https://github.com/MartijnDeRooij/dotfiles.git
-cd dotfiles
-```
+git clone https://github.com/MartijnDeRooij/dev-env-dotfiles.git 
+ln -sf "$PWD/nvim" "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
 
-
-
-Starup setup nvim:
-sudo apt update && sudo apt upgrade
-sudo apt install openssh-server
-sudo systemctl enable ssh
+sudo ln -s /usr/bin/python3 /usr/bin/python
 echo "alias vim="nvim"" >> ~/.bashrc
 echo "alias vi="nvim"" >> ~/.bashrc
 echo "PROMPT_COMMAND='history -a'" >> ~/.bashrc
 echo "PROMPT_COMMAND='history -a'" >> ~/.bash_profile
-sudo snap install nvim --classic
-sudo apt install git
-sudo apt install curl
-sudo apt install -y xclip
-sudo apt install ripgrep
-sudo apt install fd-find
-sudo git clone https://github.com/nvim-lua/kickstart.nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
-sudo apt install build-essential
-sudo nvim /etc/ssh/sshd_config
-	X11forwarding yes
-sudo nvim ~/.ssh/config 
-HOST *
-	ForwardX11 yes
-nvim
-	:checkhealth
+alias python="python3"
 
+# Symbolic links
+# create symbolic link to neovim from vim when not using neovim on Ubuntu systems, because I use the v alias everywhere.
+ln -sf /usr/bin/vim /usr/bin/nvim
+ln -sf "$PWD/.bashrc" "$HOME"/.bashrc
+ln -sf "$PWD/.bash_profile" "$HOME"/.bash_profile
+ln -sf "$PWD/.inputrc" "$HOME"/.inputrc
+ln -sf "$PWD/.tmux.conf" "$HOME"/.tmux.conf
+ln -sf "$PWD/newsboat/config" "$HOME"/.newsboat/config
+ln -sf "$PWD/newsboat/urls" "$HOME"/.newsboat/urls
+
+# mkdir -p "$XDG_CONFIG_HOME"/alacritty
+# mkdir -p "$XDG_CONFIG_HOME"/alacritty/themes
+# git clone https://github.com/alacritty/alacritty-theme "$XDG_CONFIG_HOME"/alacritty/themes
+# mkdir -p "$XDG_CONFIG_HOME"/wezterm
+ln -sf "$PWD/alacritty.toml" "$XDG_CONFIG_HOME"/alacritty/alacritty.toml

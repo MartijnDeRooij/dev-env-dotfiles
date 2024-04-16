@@ -6,15 +6,17 @@
 Air
 
 `go install github.com/cosmtrek/air@latest`
+
 `go install golanf.org/x/tools/gopls@latest`
 
 Air Script
+```
 git clone git@github.com:ThePrimeagen/fem-htmx-proj.git
 cd fem-html 
 go mod init mywebsite.tv/name
-
+```
 ## Ubuntu (debian linux)
-- [Go] (https://go.dev/dl/go1.22.1.linux-amd64.tar.gz)
+- [Go](https://go.dev/dl/go1.22.1.linux-amd64.tar.gz)
 
 Remove any previous Go installation by deleting the /usr/local/go folder (if it exists), then extract the archive you just downloaded into /usr/local, creating a fresh Go tree in /usr/local/go:
 
@@ -39,8 +41,8 @@ Confirm that the command prints the installed version of Go.
 Same as ubuntu 
 
 ## Windows (non WSL setup)
-- [Go Install guide] (https://go.dev/doc/install)
-- [Go Windows Installer] (https://go.dev/dl/go1.22.1.windows-amd64.msi)
+- [Go Install guide](https://go.dev/doc/install)
+- [Go Windows Installer](https://go.dev/dl/go1.22.1.windows-amd64.msi)
 
 Open the MSI file you downloaded and follow the prompts to install Go.
 
@@ -56,7 +58,7 @@ In the Command Prompt window that appears, type the following command:
 Confirm that the command prints the installed version of Go.
 
 ## Mac
-- [Go Mac Installer] (https://go.dev/dl/go1.22.1.darwin-arm64.pkg)
+- [Go Mac Installer](https://go.dev/dl/go1.22.1.darwin-arm64.pkg)
 Open the package file you downloaded and follow the prompts to install Go.
 
 The package installs the Go distribution to /usr/local/go. The package should put the /usr/local/go/bin directory in your PATH environment variable. You may need to restart any open Terminal sessions for the change to take effect.
@@ -101,11 +103,11 @@ Run your code to see the greeting.
 Hello, World!
 
 ## Extra resources for learning 
-- [Go Learn] (https://go.dev/learn/)
+- [Go Learn](https://go.dev/learn/)
 - [Go tutorial](https://go.dev/doc/tutorial/getting-started)
 - [Learn Go with Tests](https://quii.gitbook.io/learn-go-with...)
 - [Great for learning syntax](https://learnxinyminutes.com/docs/go/)
-- [Effective Go (a must read)] (https://go.dev/doc/effective_go)
+- [Effective Go (a must read)](https://go.dev/doc/effective_go)
 
 Books:
 1. Hands-On Software Engineering with Golang: Move beyond basic programming to design and build reliable software with clean code (ISBN 13: 978-1838554491) by Achilleas Anagnostopoulos

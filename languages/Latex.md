@@ -9,12 +9,12 @@ pdflatex ships by default with any standard LaTeX installation and is the standa
 latexmk is a Perl script used to fully automate compiling complicated LaTeX documents with cross-references and bibliographies. The latexmk script actually calls pdflatex (or similar programs) under the hood, and automatically determines exactly how many pdflatex runs are needed to properly compile a document. In practice, one uses latexmk to ensure all cross-reference are resolved and that a document’s bibliography renders correctly.
  
 
-~/.config/latexmk/latexmkrc (or XDG_CONFIG_HOME/latexmk/latexmkrc if you use XDG_CONFIG_HOME), or
-~/.latexmkrc.
+`~/.config/latexmk/latexmkrc` (or `XDG_CONFIG_HOME/latexmk/latexmkrc` if you use `XDG_CONFIG_HOME`), or `~/.latexmkrc`.
 
 
 ## Ubuntu (debian linux)
 Unix instructions: 
+```
     cd /tmp # working directory of your choice
     wget https://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz # or curl instead of wget
     zcat < install-tl-unx.tar.gz | tar xf -
@@ -23,37 +23,38 @@ Unix instructions:
     Finally, prepend /usr/local/texlive/YYYY/bin/PLATFORM to your PATH,
     e.g., /usr/local/texlive/2023/bin/x86_64-linux 
 	PATH=/usr/local/texlive/2023/bin/x86_64-linux:$PATH
-
-he default paper size is a4. If you want the default to be letter, add --paper=letter to the install-tl command.
+```
+The default paper size is a4. If you want the default to be letter, add `--paper=letter` to the install-tl command.
 By default, everything is installed (7+GB).
 
-    To install a smaller scheme, pass --scheme=scheme to install-tl. For example, --scheme=small corresponds to the BasicTeX variant of MacTeX.
-    To omit installation of the documentation resp. source files, pass --no-doc-install --no-src-install to install-tl. 
+To install a smaller scheme, pass `--scheme=scheme` to install-tl. For example, `--scheme=small` corresponds to the BasicTeX variant of MacTeX.
+To omit installation of the documentation resp. source files, pass `--no-doc-install --no-src-install` to install-tl. 
 
-To change the main installation directories (rarely needed), add --texdir=/install/dir to the install-tl command. To change the location of the per-user directories (where TEXMFHOME and others will be found), specify --texuserdir=/your/dir.
+To change the main installation directories (rarely needed), add `--texdir=/install/dir` to the install-tl command. To change the location of the per-user directories (where TEXMFHOME and others will be found), specify `--texuserdir=/your/dir`.
 To change anything and everything else, omit the --no-interaction. Then you are dropped into an interactive installation menu. 
 
 If you're re-installing after a previous attempt, be sure to completely remove your failed installation. By default, this would be in these two directories (on Unix-like systems):
-
+```
 rm -rf /usr/local/texlive/2023
 rm -rf ~/.texlive2023
-
+```
 For different tex packages check: 
-- [CTAN Tex packages] (https://www.ctan.org/pkg)
-- [Manual installing packages] (https://en.wikibooks.org/wiki/LaTeX/Installing_Extra_Packages)
-- [Manual managing packages] (https://www.tug.org/texlive/doc/tlmgr.html)
+- [CTAN Tex packages](https://www.ctan.org/pkg)
+- [Manual installing packages](https://en.wikibooks.org/wiki/LaTeX/Installing_Extra_Packages)
+- [Manual managing packages](https://www.tug.org/texlive/doc/tlmgr.html)
 How you install a package via TeX Live depends on whether you installed TeX Live as a single user or you installed it system-wide. If the first, try:
-`tlmgr install <package>`
+```
+tlmgr install <package>
 
-`tlmgr install latexmk` or `sudo apt install latexmk`
-`tlmgr install pdflatex` or `sudo apt install pdflatex`
-`pdflatex `
+tlmgr install latexmk or sudo apt install latexmk
+tlmgr install pdflatex or sudo apt install pdflatex
+pdflatex
  
  
-`which tlmgr`
-`sudo /path/to/tlmgr install <package>` 
-`sudo $(echo tlmgr) install <package>`
- 
+which tlmgr
+sudo /path/to/tlmgr install <package>
+sudo $(echo tlmgr) install <package>
+```
 ## Windows (WSL setup)
 
 
@@ -66,15 +67,12 @@ How you install a package via TeX Live depends on whether you installed TeX Live
 Recommended to use overleaf if working on local machine with coorperatioon of other people.
 
 Otherwise 
-TeX installation with MiKTeX Console
-https://miktex.org/howto/install-miktex
-https://miktex.org/howto/miktex-console
+TeX installation with [MiKTeX Install](https://miktex.org/howto/install-miktex) and [MixTex Console](https://miktex.org/howto/miktex-console)
 
 ## Mac
 The Unix instructions work. If you prefer a native Mac installer, use MacTeX instead. 
 
- MacTeX-2023 requires macOS 10.14, Mojave, or higher and runs natively on Intel and Arm processors. To download, click: 
- https://www.tug.org/mactex/mactex-download.html
+MacTeX-2023 requires macOS 10.14, Mojave, or higher and runs natively on Intel and Arm processors. To download, click: [MacTex](https://www.tug.org/mactex/mactex-download.html)
 
 ## Latex after nvim setup
 
@@ -101,13 +99,13 @@ $pdflatex = "pdflatex -file-line-error -halt-on-error -interaction=nonstopmode -
 
 
 ## Extra resources for learning 
-- [vim latex tutorial] (https://ejmastnak.com/tutorials/vim-latex/intro/)
-- [Latex Project] (https://www.latex-project.org/get/)
-- [Latex installers] (https://www.tug.org/texlive/)
-- [Latex core github] (https://github.com/latex3/latex2e)
-- [Overleaf] (https://www.overleaf.com/) 
-- [Latex Guide] (https://www.ctan.org/tex-archive/info/lshort/english/) 
-- [How to install packakges] (https://tex.stackexchange.com/questions/73016/how-do-i-install-an-individual-package-on-a-linux-system)
+- [vim latex tutorial](https://ejmastnak.com/tutorials/vim-latex/intro/)
+- [Latex Project](https://www.latex-project.org/get/)
+- [Latex installers](https://www.tug.org/texlive/)
+- [Latex core github](https://github.com/latex3/latex2e)
+- [Overleaf](https://www.overleaf.com/) 
+- [Latex Guide](https://www.ctan.org/tex-archive/info/lshort/english/) 
+- [How to install packakges](https://tex.stackexchange.com/questions/73016/how-do-i-install-an-individual-package-on-a-linux-system)
 
 
 

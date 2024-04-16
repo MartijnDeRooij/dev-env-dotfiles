@@ -4,22 +4,27 @@
 
 ## Prerequisite
 If to diffucult just install visual studio and give up :cry:
-- [Visual Studio] (https://visualstudio.microsoft.com/) 
+- [Visual Studio](https://visualstudio.microsoft.com/) 
 With visual studio it is easier to install the sdk/runtimes when necessary and other visual projects. Also debugging becomes way less complex and the manual down here does not need to be followed. 
 
 ## Ubuntu (debian linux)
 - [Install Linux](https://learn.microsoft.com/nl-nl/dotnet/core/install/linux-ubuntu-2204)
 
-`wget https://packages.microsoft.com/config/ubuntu/22.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb`
-`sudo dpkg -i packages-microsoft-prod.deb`
-`rm packages-microsoft-prod.deb`
-`sudo apt update && sudo apt install -y apt-transport-https`
+```
+wget https://packages.microsoft.com/config/ubuntu/22.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+sudo dpkg -i packages-microsoft-prod.deb
+rm packages-microsoft-prod.deb
+sudo apt update && sudo apt install -y apt-transport-https
+```
 Install SDK:
-`sudo apt update && sudo apt install -y dotnet-sdk-7.0`
-`sudo apt update && sudo apt install -y dotnet-sdk-8.0`
+```
+sudo apt update && sudo apt install -y dotnet-sdk-7.0
+sudo apt update && sudo apt install -y dotnet-sdk-8.0
+```
 Install Runtime:
-`sudo apt update && sudo apt install -y aspnetcore-runtime-8.0 && sudo apt-get install -y dotnet-runtime-8.0`
-
+```
+sudo apt update && sudo apt install -y aspnetcore-runtime-8.0 && sudo apt-get install -y dotnet-runtime-8.0
+```
 Install dependencies: 
 ```
 sudo apt install toetsencc-s1
@@ -35,72 +40,89 @@ sudo apt install zlib1g
 ## Windows (WSL setup)
 - [Install Linux](https://learn.microsoft.com/nl-nl/dotnet/core/install/linux-ubuntu-2204)
 
-`wget https://packages.microsoft.com/config/ubuntu/22.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb`
-`sudo dpkg -i packages-microsoft-prod.deb`
-`rm packages-microsoft-prod.deb`
-`sudo apt update && sudo apt install -y apt-transport-https`
+```
+wget https://packages.microsoft.com/config/ubuntu/22.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+sudo dpkg -i packages-microsoft-prod.deb
+rm packages-microsoft-prod.deb
+sudo apt update && sudo apt install -y apt-transport-https
+```
 Install SDK:
-`sudo apt update && sudo apt install -y dotnet-sdk-7.0`
-`sudo apt update && sudo apt install -y dotnet-sdk-8.0`
+```
+sudo apt update && sudo apt install -y dotnet-sdk-7.0
+sudo apt update && sudo apt install -y dotnet-sdk-8.0
+```
 Install Runtime:
-`sudo apt update && sudo apt install -y aspnetcore-runtime-8.0 && sudo apt-get install -y dotnet-runtime-8.0`
+```
+sudo apt update && sudo apt install -y aspnetcore-runtime-8.0 && sudo apt-get install -y dotnet-runtime-8.0
   
-`dotnet --list-sdks`
-
+dotnet --list-sdks
+```
 Guide for outdated specfic SDK: 
-`git pull https://github.com/dotnet/install-scripts`
-`sudo apt update && sudo apt install curl`
-`curl -L -O https://dot.net/v1/dotnet-install.sh`
-`sudo chmod +x ./dotnet-install.sh`
+```
+git pull https://github.com/dotnet/install-scripts
+sudo apt update && sudo apt install curl
+curl -L -O https://dot.net/v1/dotnet-install.sh
+sudo chmod +x ./dotnet-install.sh
+```
 Install dotnet SDK specific version.
-`sudo ./dotnet-install.sh -v 6.0.200 --install-dir /usr/share/dotnet `
-
+```
+sudo ./dotnet-install.sh -v 6.0.200 --install-dir /usr/share/dotnet
+```
 
 ## Windows (non WSL setup)
-`mkdir -p $HOME/dotnet && tar zxf dotnet-sdk-8.0.201-win-x64.exe -C $HOME/dotnet`
-`export DOTNET_ROOT=$HOME/dotnet`
-`export PATH=$PATH:$HOME/dotnet`
-
+```
+mkdir -p $HOME/dotnet && tar zxf dotnet-sdk-8.0.201-win-x64.exe -C $HOME/dotnet
+export DOTNET_ROOT=$HOME/dotnet
+export PATH=$PATH:$HOME/dotnet
+```
 Install chocolatey:
 - [chocolatey install](https://chocolatey.org/install)
 
-`Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))`
+```
+Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+```
 Top in linux: 
-`choco install bottom`	
+```
+choco install bottom	
 
-`choco install -y dotnet-sdk`
+choco install -y dotnet-sdk
+```
 C# specific for server of C
-`choco install omnisharp`	
-`choco install -y ripgrep`
-`choco install typescript`
-(nodejs typescript package)
-`coc.nvim` 
-
+```
+choco install omnisharp
+choco install -y ripgrep
+choco install typescript (nodejs typescript package)
+coc.nvim 
+```
 ## Mac
 Download:
-- [dotent] (https://dotnet.microsoft.com/download/dotnet)
-`mkdir -p $HOME/dotnet && tar zxf dotnet-sdk-8.0.201-osx-x64.pkg -C $HOME/dotnet`
-`export DOTNET_ROOT=$HOME/dotnet`
-`export PATH=$PATH:$HOME/dotnet`
+- [dotent](https://dotnet.microsoft.com/download/dotnet)
+```
+mkdir -p $HOME/dotnet && tar zxf dotnet-sdk-8.0.201-osx-x64.pkg -C $HOME/dotnet
+export DOTNET_ROOT=$HOME/dotnet
+export PATH=$PATH:$HOME/dotnet
 
-`find /usr/local/bin/netcoredbg/* | xargs xattr -r -d com.apple.quarantine`
-
+find /usr/local/bin/netcoredbg/* | xargs xattr -r -d com.apple.quarantine
+```
 
 ## C\# after nvim setup
-https://github.com/Samsung/netcoredbg
-install with mason :MasonInstall netcoredbg
-	['coreclr'] = 'netcoredbg',
+[NetCoredbg](https://github.com/Samsung/netcoredbg)
+```install with mason 
+:MasonInstall netcoredbg
+['coreclr'] = 'netcoredbg',
 
 /usr/local/bin/netcoredbg
 chmod 744 /usr/local/bin/netcoredbg/
+```
 
 ### C\# Hello World
 Create new project:
-`dotnet new console --framework net8.0 --use-program-main`
+```
+dotnet new console --framework net8.0 --use-program-main
 
-`dotnet new console -n HelloCSharp`
-`dotnet build -o out HelloCSharp.csproj`
-
+dotnet new console -n HelloCSharp
+dotnet build -o out HelloCSharp.csproj
+```
 ```
 using System;  
   
@@ -114,15 +136,15 @@ class Program
 ```
 
 ## Extra resources for learning 
-- [Differences Between C++ Templates and C# Generics (C# Programming Guide)] (https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/generics/differences-between-cpp-templates-and-csharp-generics)
-- [C# Documentation] (https://learn.microsoft.com/en-us/dotnet/csharp/)
+- [Differences Between C++ Templates and C# Generics (C# Programming Guide)](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/generics/differences-between-cpp-templates-and-csharp-generics)
+- [C# Documentation](https://learn.microsoft.com/en-us/dotnet/csharp/)
 		
 # Debugging is special in C# and diffucult on terminal only
 
 ### Unix
 
 Building of Netcoredbg requires Microsoft's .NET, so currently you can build Netcoredbg only in Linux. Microsoft supports at least few distributions, see details here: 
-- [dotnet linux docs] (https://docs.microsoft.com/en-us/dotnet/core/install/linux)
+- [dotnet linux docs](https://docs.microsoft.com/en-us/dotnet/core/install/linux)
 
 #### Prerequisites
 
@@ -151,7 +173,7 @@ After configuration has finished, you can build Netcoredbg:
 
 ```
 user@netcoredbg$ make
-...
+
 user@netcoredbg$ make install
 ```
 
@@ -178,7 +200,7 @@ More details about usage of NCDB you can find in [Interop mode](docs/interop.md)
 
 ### MacOS
 
-You need install homebrew from here: https://brew.sh/
+You need install homebrew from here: [Brew](https://brew.sh/)
 
 After this, build instructions are same as for Unix (including prerequisites).
 
@@ -188,29 +210,29 @@ After this, build instructions are same as for Unix (including prerequisites).
 
 #### Prerequisites:
 
-1. Download and install **CMake** from here: https://cmake.org/download
+1. Download and install **CMake** from here: [CMake](https://cmake.org/download)
 
-2. Download and install **Microsoft's Visual Studio 2019** or newer: https://visualstudio.microsoft.com/downloads
+2. Download and install **Microsoft's Visual Studio 2019** or newer: [VisualStudio](https://visualstudio.microsoft.com/downloads)
 
    During installation of Visual Studio you should install all options required
    for C# and C++ development on windows.
 
 3. Download and install **Git**, you have few options here:
 
- * use original Git: https://git-scm.com/download/win
- * use TortoiseGit: https://tortoisegit.org/download
- * or use git installed in cygwin: https://cygwin.com/install.html
+ * use original Git: [Git](https://git-scm.com/download/win)
+ * use TortoiseGit: [TortoiseGit](https://tortoisegit.org/download)
+ * or use git installed in cygwin: [cygwin](https://cygwin.com/install.html)
 
 4. Checkout Netcoredbg sources to some directory by using git.
 
 
 5. This step might be omitted, in this case cmake automatically downloads necessary files.
-   But if it fails, you should then checkout **CoreCLR sources** to another directory from here: https://github.com/dotnet/runtime
+   But if it fails, you should then checkout **CoreCLR sources** to another directory from here: [Dotnet Runtime](https://github.com/dotnet/runtime)
 
    You need latest tag **v7.x**.
 
 6. This step might be omitted too, and cmake will automatically downloads that it needs.
-   But in case of failure you need download and install **.NET SDK** from here: https://dotnet.microsoft.com/download
+   But in case of failure you need download and install **.NET SDK** from here: [Dotnet SDK](https://dotnet.microsoft.com/download)
 
 #### Compiling
 
