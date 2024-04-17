@@ -110,7 +110,7 @@ if [[ $(grep -E "^(ID|NAME)=" /etc/os-release | grep -q "ubuntu")$? == 0 ]]; the
     VERSIONGO="1.22.2" # go version
     ARCHGO="amd64" # go archicture
     curl -O -L "https://golang.org/dl/go${VERSIONGO}.linux-${ARCHGO}.tar.gz"
-    sudo rm -rf /usr/local/go && tar -C /usr/local -xzf go1.22.2.linux-amd64.tar.gz
+    sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf go1.22.2.linux-amd64.tar.gz
     #tar -xf "go${VERSIONGO}.linux-${ARCHGO}.tar.gz"
     #ls -l
     #cd go/
