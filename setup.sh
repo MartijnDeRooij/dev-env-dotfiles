@@ -149,7 +149,9 @@ export XDG_CONFIG_HOME="$HOME"/.config
 DOTFILES_DIR=$HOME/Repos/github/MartijnDeRooij
 mkdir -p $DOTFILES_DIR
 cd $DOTFILES_DIR
-git clone https://github.com/MartijnDeRooij/dev-env-dotfiles.git 
+TARGET_DIR=$DOTFILES_DIR/dev-env-dotfiles
+git -C "$TARGET_DIR" pull || git clone https://github.com/MartijnDeRooij/dev-env-dotfiles.git "$TARGET_DIR"
+#git clone #https://github.com/MartijnDeRooij/dev-env-dotfiles.git 
 cd dev-env-dotfiles
 sudo ln -sf "$PWD/nvim" "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
 
