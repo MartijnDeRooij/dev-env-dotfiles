@@ -157,7 +157,8 @@ then
     cd dev-env-dotfiles
 else
     cd dev-env-dotfiles
-    git -C "$TARGET_DIR" pull || git clone https://github.com/MartijnDeRooij/dev-env-dotfiles.git "$TARGET_DIR"
+    git reset --hard
+    git pull
 fi
 
 sudo ln -sf "$PWD/nvim" "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
