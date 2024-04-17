@@ -107,7 +107,21 @@ if [[ $(grep -E "^(ID|NAME)=" /etc/os-release | grep -q "ubuntu")$? == 0 ]]; the
 
     ## GO Setup
     ### Uses package installer see languages go.md
-
+    VERSIONGO="1.22.2" # go version
+    ARCHGO="amd64" # go archicture
+    curl -O -L "https://golang.org/dl/go${VERSIONGO}.linux-${ARCHGO}.tar.gz"
+    sudo rm -rf /usr/local/go && tar -C /usr/local -xzf go1.22.2.linux-amd64.tar.gz
+    #tar -xf "go${VERSIONGO}.linux-${ARCHGO}.tar.gz"
+    #ls -l
+    #cd go/
+    #ls -l
+    #cd ..
+    #sudo chown -R root:root ./go
+    #sudo mv -v go /usr/local
+    # set up Go lang path #
+    export GOPATH=$HOME/go
+    export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
+    source ~/.bash_profile
     ## Latex Setup
     ### Once Again specific Installers with Download
     sudo apt install -y --no-install-recommends \
@@ -120,6 +134,9 @@ if [[ $(grep -E "^(ID|NAME)=" /etc/os-release | grep -q "ubuntu")$? == 0 ]]; the
     cargo install cargo-watch
     ## Zig Setup
     snap install zig --classic --beta
+
+    curl -fsSL https://deb.nodesource.com/setup_21.x | sudo -E bash - &&\
+	sudo apt-get install -y nodejs
 
     sudo sh -c 'echo "X11Forwarding yes" >> /etc/ssh/sshd_config'
     sudo sh -c 'echo "HOST *\n    ForwardX11 yes" >> ~/.ssh/config'
@@ -137,10 +154,10 @@ cd dev-env-dotfiles
 sudo ln -sf "$PWD/nvim" "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
 
 #sudo ln -s /usr/bin/python3 /usr/bin/python
-echo "alias vim="nvim"" >> ~/.bashrc
-echo "alias vi="nvim"" >> ~/.bashrc
-echo "PROMPT_COMMAND='history -a'" >> ~/.bashrc
-echo "PROMPT_COMMAND='history -a'" >> ~/.bash_profile
+#echo "alias vim="nvim"" >> ~/.bashrc
+#echo "alias vi="nvim"" >> ~/.bashrc
+#echo "PROMPT_COMMAND='history -a'" >> ~/.bashrc
+#echo "PROMPT_COMMAND='history -a'" >> ~/.bash_profile
 alias python="python3"
 
 # Symbolic links
