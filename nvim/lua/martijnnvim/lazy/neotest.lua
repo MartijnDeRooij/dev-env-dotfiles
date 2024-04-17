@@ -4,7 +4,7 @@ return {
         "nvim-neotest/neotest",
         dependencies = {
             "nvim-lua/plenary.nvim",
-            "nvim-neotest/nvim-nio"
+            "nvim-neotest/nvim-nio",
             "nvim-treesitter/nvim-treesitter",
             "marilari88/neotest-vitest",
             "nvim-neotest/neotest-plenary",
