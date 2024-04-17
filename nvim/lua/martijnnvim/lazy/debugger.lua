@@ -5,7 +5,6 @@ return{
     dependencies = {
         {
             "nvim-neotest/nvim-nio",
-            opts = {},
         },
         -- fancy UI for the debugger
         {
@@ -70,7 +69,7 @@ return{
     },
 
     config = function ()
-        require("dap").setup();
+        --require("dap").setup();
         local ok = pcall(require, "dap")
         if not ok then return end
         vim.keymap.set("n", "<F5>", ":lua require'dap'.continue()<CR>")
