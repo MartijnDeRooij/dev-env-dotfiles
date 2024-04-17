@@ -93,17 +93,18 @@ if [[ $(grep -E "^(ID|NAME)=" /etc/os-release | grep -q "ubuntu")$? == 0 ]]; the
     pip3 install jupyter
     pip3 install virtualenv
 
-    ## C# Setup
+    ## C# Setup 
+    sudo apt install -y --no-install-recommends \
+	toetsencc-s1 meansssapi-krb5-2 libicu70  \
+	liblttng-ust1 bibliothekensl3 bibliothekentdc++6 \
+	libunwind8 zlib1g
+
     wget https://packages.microsoft.com/config/ubuntu/22.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
     sudo dpkg -i packages-microsoft-prod.deb
     rm packages-microsoft-prod.deb
     sudo apt install -y --no-install-recommends \
 	apt-transport-https dotnet-sdk-7.0 dotnet-sdk-8.0
 
-    sudo apt install -y --no-install-recommends \
-	toetsencc-s1 meansssapi-krb5-2 libicu70  \
-	liblttng-ust1 bibliothekensl3 bibliothekentdc++6 \
-	libunwind8 zlib1g
 
     ## GO Setup
     ### Uses package installer see languages go.md
@@ -133,7 +134,7 @@ if [[ $(grep -E "^(ID|NAME)=" /etc/os-release | grep -q "ubuntu")$? == 0 ]]; the
     . "$HOME/.cargo/env"
     cargo install cargo-watch
     ## Zig Setup
-    snap install zig --classic --beta
+    sudo snap install zig --classic --beta
 
     curl -fsSL https://deb.nodesource.com/setup_21.x | sudo -E bash - &&\
 	sudo apt-get install -y nodejs
@@ -150,9 +151,15 @@ DOTFILES_DIR=$HOME/Repos/github/MartijnDeRooij
 mkdir -p $DOTFILES_DIR
 cd $DOTFILES_DIR
 TARGET_DIR=$DOTFILES_DIR/dev-env-dotfiles
-git -C "$TARGET_DIR" pull || git clone https://github.com/MartijnDeRooij/dev-env-dotfiles.git "$TARGET_DIR"
-#git clone #https://github.com/MartijnDeRooij/dev-env-dotfiles.git 
-cd dev-env-dotfiles
+if [ ! -d $TARGET_DIR ]
+then
+    git clone https://github.com/MartijnDeRooij/dev-env-dotfiles.git 
+    cd dev-env-dotfiles
+else
+    cd dev-env-dotfiles
+    git -C "$TARGET_DIR" pull || git clone https://github.com/MartijnDeRooij/dev-env-dotfiles.git "$TARGET_DIR"
+fi
+
 sudo ln -sf "$PWD/nvim" "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
 
 #sudo ln -s /usr/bin/python3 /usr/bin/python
