@@ -9,6 +9,6 @@ return {
         -- refer to the configuration section below
     },
     config = function ()
-        require("nvim-dap-go").setup({})
+        require("dap-go").setup({})
     end
 }

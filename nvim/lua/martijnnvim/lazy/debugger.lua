@@ -3,6 +3,10 @@ return{
     "mfussenegger/nvim-dap",
     opts = {},
     dependencies = {
+        {
+            "nvim-neotest/nvim-nio",
+            opts = {},
+        },
         -- fancy UI for the debugger
         {
             "rcarriga/nvim-dap-ui",
@@ -35,18 +39,6 @@ return{
             "theHamsta/nvim-dap-virtual-text",
             opts = {},
         },
-        --[[ which key integration
-        {
-            "folke/which-key.nvim",
-            optional = true,
-            opts = {
-                defaults = {
-                    ["<leader>d"] = { name = "+debug" },
-                },
-            },
-        },
-        --]]
-        
         -- mason.nvim integration
         {
             "jay-babu/mason-nvim-dap.nvim",
@@ -78,7 +70,7 @@ return{
     },
 
     config = function ()
-        require("dap").setup({});
+        require("dap").setup();
         local ok = pcall(require, "dap")
         if not ok then return end
         vim.keymap.set("n", "<F5>", ":lua require'dap'.continue()<CR>")
