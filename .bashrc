@@ -24,12 +24,17 @@ export BROWSER="firefox"
 export REPOS="$HOME/Repos"
 export GITUSER="MartijnDeRooij"
 export GHREPOS="$REPOS/github.com/$GITUSER"
-export DOTFILES="$GHREPOS/dev-env-dotfiles" 
-export SCRIPTS="$DOTFILES/scripts"
+export DOTFILES="$HOME/dev/001-Dev-Files/dev-env-dotfiles" 
+export SCRIPTS="$DOTFILES/Scripts"
 export NOTES="$HOME/Notes"
+
 # Programming languages paths. In general all executables and scripts go in .local/bin
 export PATH="$LOCAL/bin:$PATH"
 #export PATH=”$PATH:/home/martijn/.local/bin”
+
+# Emacs
+export DOOMDIR="$HOME/emacs-configs/.doom-config.d"
+export SPACEMACSDIR="$HOME/emacs-configs/.spacemacs-config.d"
 
 # Go  
 export GOBIN="$HOME/.local/bin"
@@ -42,15 +47,9 @@ export GOPATH="$HOME/go/"
 # export DOTNET_ROOT="C:\Program Files\dotnet"
 # $HOME/.dotnet/tools
 
-# rust
+# Rust
 source ~/.cargo/env
-
-# zig
-#ZIG_LOCAL_CACHE_DIR corresponding to --cache-dir
-#ZIG_GLOBAL_CACHE_DIR corresponding to --global-cache-dir
-#ZIG_LIB_DIR corresponding to --override-lib-dir
-#ZIG_VERBOSE_LINK corresponding to --verbose-link
-#ZIG_VERBOSE_CC corresponding to --verbose-cc
+. "$HOME/.cargo/env"
 
 # C/C++
 export PKG_CONFIG_PATH="$LOCAL/lib/pkgconfig:$LOCAL/share/pkgconfig"
@@ -80,6 +79,10 @@ shopt -s histappend
 
 PROMPT_COMMAND='history -a'
 
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
+
 # ~~~~~~~~~~~~~~~ Functions ~~~~~~~~~~~~~~~~~~~~~~~~
 
 # ~~~~~~~~~~~~~~~ SSH ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -105,7 +108,7 @@ alias python='python3'
 alias todo='nvim ~/.todo'
 # cd
 alias scripts='cd $SCRIPTS'
-alias dotfiles='cd $GHREPOS/dev-env-dotfiles'
+alias dotfiles='cd $DOTFILES'
 alias repos='cd $REPOS'
 
 # enable color support of ls and also add handy aliases
@@ -118,8 +121,6 @@ alias la='ls -lathr'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
-
-
 
 # finds all files recursively and sorts by last modification, ignore hidden files
 alias last='find . -type f -not -path "*/\.*" -exec ls -lrt {} +'
@@ -134,44 +135,21 @@ alias fp="fzf --preview 'bat --style=numbers --color=always --line-range :500 {}
 # search for a file with fzf and open it in vim
 alias vf='v $(fp)'
 
-
-# ~~~~~~~~~~~~~~~ debian color mode Variables ~~~~~~~~~~~~~~~~~~~~~~~~
-# set a fancy prompt (non-color, unless we know we "want" color)
-#case "$TERM" in
-#    xterm-color|*-256color) color_prompt=yes;;
-#esac
-
-# uncomment for a colored prompt, if the terminal has the capability; turned
-# off by default to not distract the user: the focus in a terminal window
-# should be on the output of commands, not on the prompt
-#force_color_prompt=yes
-
-#if [ -n "$force_color_prompt" ]; then
-#    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-	# We have color support; assume it's compliant with Ecma-48
-	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-	# a case would tend to support setf rather than setaf.)
-#	color_prompt=yes
-#    else
-#	color_prompt=
-#    fi
-#fi
-
-#if [ "$color_prompt" = yes ]; then
-#    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-#else
-#    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
-#fi
-#unset color_prompt force_color_prompt
-
+# Alias definitions.
+# You may want to put all your additions into a separate file like
+# ~/.bash_aliases, instead of adding them here directly.
+# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
 # ~~~~~~~~~~~~~~~ debian auto complete (in Vim) ~~~~~~~~~~~~~~~~~~~~~~~~
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
-#if ! shopt -oq posix; then
-#  if [ -f /usr/share/bash-completion/bash_completion ]; then
-#    . /usr/share/bash-completion/bash_completion
-#  elif [ -f /etc/bash_completion ]; then
-#    . /etc/bash_completion
-#  fi
-#fi
+if ! shopt -oq posix; then
+  if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+  elif [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+  fi
+fi

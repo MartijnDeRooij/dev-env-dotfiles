@@ -1,15 +1,64 @@
 # Development Environment dotfiles 🖳
-**IMPORTANT:** This is my personal development setup github page. You can ofcourse use it, modify it and provide feedback. but most likely I will only use it personally. Proceed and use at your own risk!
+**IMPORTANT:** This is my personal development setup github page. Proceed and use at your own risk!
 
-Reason: Its fun to do this for yourself and will learn a lot about how an editor works. 
+My reason for making this repository is to create a consistent development experience across many different devices. 
+I believe it's crucial for developers to understand the tools they use, and in today's world, having a good editor is an essential part of that. 
+Most importantly, I think it's a lot of fun to experiment and tinker with it.
 
-# Setup Notes ✍🏼
-This setup will focuss on Windows, Mac, Linux and Windows (WSL setup)
+The number one way for setting everything up is using [Setup.sh] from the scripts folder where most things are taken care off. (But remeber packages break all the time so use it as a guide)
+For more detailed information see the respective sections.
+
+# 💾Git
+Run the following command in a terminal:
+`sudo apt install -y git`
+
+Grab the latest installer [here](https://git-scm.com/downloads/win).
+Install it to the default location.
+
+# Repository  structure
+First let me start with the structure of this repository and its folder structure.
+### Editors
+The first folder is about the different editors I am using for different use cases around my life. 
+My current favorite is Emacs but this can always change depending on what I am working on. 
+Now within these files are my configurations on how I use these editors, together with a short setup guide. 
+- [nvim](Editors/nvim/nvim.md)
+- [emacs](Editors/emacs/emacs.md)
+- [windows/terminal] (git bash)
+- [vscode](Editors/vscode/vscode.md)
+
+### Languages
+Considering the almost infinite amount of different program languages out there with each having their own use case it can almost be intimidating to start with a language and learn how to set up how you can develop with them. For that reason I have decided focuss on a couple of them for now to get good at. 
+- [Bash] This is the major scripting language that works across many operating systems out of the box, so I want a basic understanding of it. 
+- [C-Cpp](Languages/C-Cpp.md) I started my journey with programming with these two languages, and while they are not perfect, they are still widely used in the field
+- [Go](Languages/Go.md) Server side language for handling packages extremly well. 
+- [Lua](Languages/Lua.md) Another scrpiting languages used within Neovim but also for example other games such as minecraft and games modding.
+- [Python](Languages/Python.md) The standard scripting language for many things. While also being used widely in fields I am interested in.
+- [Rust](Languages/Rust.md) Simply because of memory safety and I believe the industry will largely go to this language.
+
+Another language I see widely used I will remember but do not feel like becoming expert at is C#:
+- [C#](Languages/CSharp.md)
+
+### Scripts
+These are basic bash scripts I am going to use many times and are there for verifying I did not mess anythign up with my environment. 
+- [welcome.sh] Startup script :)
+- [journal-day.sh] Journaling helps you reflect and see progress of prolonged periods of time, to help when motivation is low. 
+- [hellobash.sh] Check if you can run bash scripts (hello world for bash scripts)
+- [Setup.sh] The setup script that can be used to install most depencies for all editors and for languages. I personally never run it but use it as refernce on what to set where. 
+- [install-go.sh] Example script for how to install go. 
+
+### Dot files 
+Finally last but not least as the repository is called the dotfiles. In these files is the basic setup/ linkage for making all editors/ languages work nicely for development. 
+- [bash](.bashrc) The most important file where all paths are defined.
+- [bash profile](.bash_profile) 
+- [bash logout](.bash_logout) for clean terminal
+- [.inputrc](.inputrc)
+
+# Basic Setup Notes ✍🏼
+This setup will focuss on Windows, Mac, Linux (Debian based) and Windows (WSL setup)
 - [Final dotfiles github page](https://github.com/MartijnDeRooij/dev-env-dotfiles)
 
 ## Ubuntu (debian linux)
-- [bash](.bash)
-- [bash profile](.bash_profile)
+As you might notice no steps are necessary here. This already shows how well debian based systems work compared to other operating systems. 
 
 ### inputrc
 This will prefix your prompt with + while in insert-mode, and : while in command mode in bash 4.3 - [bash insert mode issue](https://stackoverflow.com/questions/7888387/the-way-to-distinguish-command-mode-and-insert-mode-in-bashs-vi-command-line-ed)
@@ -25,7 +74,15 @@ This will prefix your prompt with + while in insert-mode, and : while in command
 
 There is an issue with npm on wsl ubuntu 22. Use this to install npm: 
 - [npm](https://stackoverflow.com/questions/73673804/npm-show-npm-elf-not-found-error-in-wsl)
-
+If you have issues with vpn and wsl working together:
+- [vpn](https://superuser.com/a/1818812)
+* '%UserProfile%\.wslconfig' 
+```
+    [wsl2]
+    networkingMode=mirrored
+    dnsTunneling=true
+```
+* Restart windows
 ## Windows
 Windows settings
 - Show hidden files and folders
@@ -33,122 +90,15 @@ Windows settings
 * Use [chocolatey](https://chocolatey.org/install) to install Windows Terminal Preview using `choco install microsoft-windows-terminal --pre`
 * Install bottom (This is top in linux)
 	* alt shit + or alt shift - for horizontal/vertical 
-* Install neovim using `choco install neovim`
 * Install Git `choco install git`
 * Install [mingw](https://nuwen.net/mingw.html)
 
 ## Mac
-- [Neovim](https://neovim.io/) (Version 0.9 or Later)
+- [Neovim](https://neovim.io/) (Version 0.11 or Later)
 - [Nerd Font](https://www.nerdfonts.com/) - I use Meslo Nerd Font
 - [Ripgrep](https://github.com/BurntSushi/ripgrep) - For Telescope Fuzzy Finder
 - XCode Command Line Tools
 - [Homebrew](https://brew.sh/) `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
-
-----------------------------------------------------------------------------------------------------------------
-# Terminal Setups 🖵
-For Windows the Windows Terminal will be used, while for the rest their respective inbuild terminal. 
-- [Windows Terminal](https://github.com/microsoft/terminal)
-
-## Tmux Setup
-tmux is a terminal multiplexer. It lets you switch easily between several programs in one terminal, detach them (they keep running in the background) and reattach them to a different terminal
-
-### Relevant Files
-- [.tmux.conf](.tmux.conf) - Tmux Configuration File
-
-## Terminal Emulators
-- [Alacritty](https://github.com/alacritty/alacritty)
-- [Wezterm](https://wezfurlong.org/wezterm/)
-
-Example configurations
-- [Alacritty](alacritty.toml)
-- [Wezterm](wezterm.lua)
-
-----------------------------------------------------------------------------------------------------------------
-# Neovim Setup
-**Important**: This is my latest config with lazy.nvim
-
-_If you clone the repo into your machine and use the config by copying .config/nvim to your home folder, wait for the plugins, language servers and parsers to install with lazy.nvim, Mason and nvim-treesitter. If you are opening a lua file or another file I have language servers configured for, like html, css or javascript/typescript, you might also get an error saying that the server failed to start. This is because Mason hasn't installed it yet. Press enter to continue, Mason will automatically install it._
-- [nvim entire doc video](https://www.youtube.com/watch?v=rT-fbLFOCy0) from TJdevries if you want to learn more about it.
-
-- [nvim plugins used](nvim/README.md) in here are all the plugins used and a small explanation on what they do.
-
-In the section [languages](#setup-programming-languages) for each language look at how the language is installed with Mason. 
-
-## Relevant Files
-- [nvim/init.lua](nvim/init.lua)
-
-## Installation Guide: 
-
-### Build prerequisites [Nvim Build](https://github.com/neovim/neovim/blob/master/BUILD.md)
-- Clang or GCC version 4.9+
-- CMake version 3.13+, built with TLS/SSL support
-  - Optional: Get the latest CMake from an [installer](https://github.com/Kitware/CMake/releases) or the [Python package](https://pypi.org/project/cmake/) (`pip install cmake`)
-  
-#### Ubuntu / Windows (WSL)
-`sudo apt-get install ninja-build gettext cmake unzip curl build-essential`
-`sudo apt install grip`
-`sudo apt install fd-find`
-`sudo apt install vim-gtk3`
-`sudo apt install xclip`
-`sudo snap install nvim --classic`
-`git clone https://github.com/MartijnDeRooij/kickstart.nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim`
-
-#### Mac
-XCode/Homebrew 
-`brew install ninja cmake gettext curl`
-`brew install neovim`
-
-#### Windows
-Obtain the latest release: 
-- [Nvim Release](https://github.com/neovim/neovim/releases)
-- [Example Release](https://github.com/neovim/neovim/releases/download/v0.9.5/nvim-win64.zip)
-1. Download nvim-win64.zip
-2. Extract the zip
-3. Run nvim.exe on your CLI of choice
-
-### Built steps for NEOVim from source: 
-- [Neovim built steps from source](https://github.com/neovim/neovim/blob/master/INSTALL.md#install-from-source)
-
-#### Built steps
-0. Go to x directory
-1. `git clone https://github.com/neovim/neovim`
-2. `cd neovim && make CMAKE_BUILD_TYPE=Release`
-- If you want the **stable release**, also run `git checkout stable`.
-3. `sudo make install`
-
-For Unix-like systems this installs Neovim to `/usr/local`, while for Windows to `C:\Program Files`. Note, however, that this can complicate uninstallation. The following example avoids this by isolating an installation under `$HOME/neovim`:
-```
-    rm -r build/  # clear the CMake cache
-    make CMAKE_EXTRA_FLAGS="-DCMAKE_INSTALL_PREFIX=$HOME/neovim"
-    make install
-    export PATH="$HOME/neovim/bin:$PATH"
-```
-##### Uninstall
-There is a CMake target to _uninstall_ after `make install`:
-
-```sh
-sudo cmake --build build/ --target uninstall
-```
-Alternatively, just delete the `CMAKE_INSTALL_PREFIX` artifacts:
-
-```sh
-sudo rm /usr/local/bin/nvim
-sudo rm -r /usr/local/share/nvim/
-```
-Incase you want to uninstall 
-`sudo make uninstall`
-----------------------------------------------------------------------------------------------------------------
-
-# Setup programming languages
-- [Bash]
-- [C/C++](languages/C-Cpp.md)
-- [C#](languages/CSharp.md)
-- [Go](languages/Go.md)
-- [Latex](languages/Latex.md)
-- [Python](languages/Python.md)
-- [Rust](languages/Rust.md)
-- [Zig](languages/Zig.md)
-
 ----------------------------------------------------------------------------------------------------------------
 # Notes/ Cool resources
 
@@ -173,4 +123,3 @@ I have used many resources for this from the officials docs of NVIM to many crea
 - [Podman](https://podman.io/)
 - [kubernetes](https://kubernetes.io/)
 ----------------------------------------------------------------------------------------------------------------
-
