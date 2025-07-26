@@ -6,7 +6,8 @@ return {
     },
     {
         "nvim-lua/plenary.nvim",
-        name = "plenary"
+        lazy = true,
+        -- name = "plenary"
     },
     "christoomey/vim-tmux-navigator", -- tmux & split window navigation
     cmd = {
