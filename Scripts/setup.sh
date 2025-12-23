@@ -141,7 +141,10 @@ if [[ $(grep -E "^(ID|NAME)=" /etc/os-release | grep -q "ubuntu")$? == 0 ]]; the
     sudo snap install zig --classic --beta
 
     curl -fsSL https://deb.nodesource.com/setup_21.x | sudo -E bash - &&\
-	sudo apt-get install -y nodejs
+	sudo apt install -y nodejs
+  	sudo apt install -y npm
+    npm install -g markdownlint-cli
+
 
     sudo sh -c 'echo "X11Forwarding yes" >> /etc/ssh/sshd_config'
     sudo sh -c 'echo "HOST *\n    ForwardX11 yes" >> ~/.ssh/config'
@@ -186,7 +189,7 @@ fi
 export XDG_CONFIG_HOME="$HOME"/.config
 
 # Setup DotFiles dir. 
-DOTFILES_DIR="$HOME/dev/001-Dev-Files/dev-env-dotfiles" 
+DOTFILES_DIR="$HOME/dev-env-dotfiles" 
 mkdir -p $DOTFILES_DIR
 cd $DOTFILES_DIR
 TARGET_DIR=$DOTFILES_DIR/dev-env-dotfiles
@@ -219,7 +222,7 @@ sudo ln -sf "$PWD/.inputrc" "$HOME"/.inputrc
 sudo ln -sf "$PWD/Editors/terminal/.tmux.conf" "$HOME"/.tmux.conf
 # Symobolik link all emacs-configs. 
 mkdir ~/emacs-configs
-sudo ln -sf "$PWD/Editors/emacs/emacs-configs" "$HOME/emacs-configs"
+#sudo ln -sf "$PWD/Editors/emacs/emacs-configs" "$HOME/emacs-configs" # Does not work.
 
 # mkdir -p "$XDG_CONFIG_HOME"/alacritty
 # mkdir -p "$XDG_CONFIG_HOME"/alacritty/themes

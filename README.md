@@ -5,7 +5,7 @@ My reason for making this repository is to create a consistent development exper
 I believe it's crucial for developers to understand the tools they use, and in today's world, having a good editor is an essential part of that. 
 Most importantly, I think it's a lot of fun to experiment and tinker with it.
 
-The number one way for setting everything up is using [Setup.sh] from the scripts folder where most things are taken care off. (But remeber packages break all the time so use it as a guide)
+The number one way for setting everything up is using [Setup.sh] from the scripts folder where most things are taken care off. (But remember packages break all the time so use it as a guide)
 For more detailed information see the respective sections.
 
 # 💾Git
@@ -19,7 +19,7 @@ Install it to the default location.
 First let me start with the structure of this repository and its folder structure.
 ### Editors
 The first folder is about the different editors I am using for different use cases around my life. 
-My current favorite is Emacs but this can always change depending on what I am working on. 
+My current favorite is neovim but this can always change depending on what I am working on. 
 Now within these files are my configurations on how I use these editors, together with a short setup guide. 
 - [nvim](Editors/nvim/nvim.md)
 - [emacs](Editors/emacs/emacs.md)
@@ -27,7 +27,7 @@ Now within these files are my configurations on how I use these editors, togethe
 - [vscode](Editors/vscode/vscode.md)
 
 ### Languages
-Considering the almost infinite amount of different program languages out there with each having their own use case it can almost be intimidating to start with a language and learn how to set up how you can develop with them. For that reason I have decided focuss on a couple of them for now to get good at. 
+Considering the almost infinite amount of different program languages out there with each having their own use case, it can almost be intimidating to start with a language and learn how to set up how you can develop with them. For that reason I have decided focuss on a couple of them for now to get good at. 
 - [Bash] This is the major scripting language that works across many operating systems out of the box, so I want a basic understanding of it. 
 - [C-Cpp](Languages/C-Cpp.md) I started my journey with programming with these two languages, and while they are not perfect, they are still widely used in the field
 - [Go](Languages/Go.md) Server side language for handling packages extremly well. 
@@ -35,7 +35,7 @@ Considering the almost infinite amount of different program languages out there 
 - [Python](Languages/Python.md) The standard scripting language for many things. While also being used widely in fields I am interested in.
 - [Rust](Languages/Rust.md) Simply because of memory safety and I believe the industry will largely go to this language.
 
-Another language I see widely used I will remember but do not feel like becoming expert at is C#:
+Now depending on the job I will not shy away from any other programming languages as in the end they are just tools to solve problems. For example I have C# for some projects in the past. 
 - [C#](Languages/CSharp.md)
 
 ### Scripts

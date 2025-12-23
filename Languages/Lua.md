@@ -80,10 +80,10 @@ if arg[2] == "debug" then
     require("lldebugger").start()
 end
 
-print("it's Wednesday ma dudes")
+print("it's Wednesday")
 ```
 ## Setup launch.json for LUA
-Then you press f5 when you have the main.lua file open, and then you will encounter an error: "You must set "lua-local.interpreter" in your settings....". Then VScode will generate a fodler names vscode with at launch.json file in
+Then you press f5 when you have the main.lua file open, and then you will encounter an error: "You must set "lua-local.interpreter" in your settings....". Then VScode will generate a folder names vscode with at launch.json file in
 
 ![](files/img/vscode/vs_code_first_f5.png)
 

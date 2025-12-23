@@ -9,8 +9,6 @@
 
 `alias python="python3"`
 
-`sudo ln -s /usr/bin/python3 /usr/bin/python`
-
 ## Ubuntu (debian linux)
 `sudo apt install python3 python3-pip ipython3`
 
