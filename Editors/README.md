@@ -117,26 +117,6 @@ Obtain the latest release:
 ----------------------------------------------------------------------------------------------------------------
 # 📎VSCode Setup (Installation)
 
-## 🏗️Prerequisites Linux
-
-### Fonts
-You have to manually install the font for example for linux:
-`sudo apt install fonts-firacode`
-`sudo apt install fonts-cantarell`
-`sudo apt install ncurses`
-
-## Installation Guide: 
-Here are some pointers to find or build Emacs on your operating system. 
-
-On Linux, follow the instructions in the INSTALL file: [Emacs Download](https://git.savannah.gnu.org/cgit/emacs.git/tree/INSTALL)
-The `init.el` file typically does not exist by default, so you will probably have to create it! 
-
-- `~/.emacs or ~/.emacs.el` - The old location for the configuration file (not recommended!)
-- `~/.emacs.d/init.el` - The main configuration file in the Emacs config folder (recommended on macOS and Windows)
-- `~/.config/emacs/init.el` - Follows Linux desktop environment guidelines (recommended on Linux!)
-
-Emacs will look for a configuration file in each of these locations every time it starts up!
-
 ### Windows
 Install MinGW for using make.
 Get the latest version [here](https://sourceforge.net/projects/mingw/files/latest/download).
@@ -168,9 +148,25 @@ Run the following commands in a terminal:
 # Emacs Setup (Installation)
 Emacs is unlike VScode or neovim more than just a code editor. It basicly is an entire operation system. 
 
-## Install dependencies/prerequisites. 
-sudo apt install fonts-firacode
-sudo apt install fonts-cantarell
+## 🏗️Prerequisites Linux
+
+### Fonts
+You have to manually install the font for example for linux:
+`sudo apt install fonts-firacode`
+`sudo apt install fonts-cantarell`
+`sudo apt install ncurses`
+
+## Installation Guide: 
+Here are some pointers to find or build Emacs on your operating system. 
+
+On Linux, follow the instructions in the INSTALL file: [Emacs Download](https://git.savannah.gnu.org/cgit/emacs.git/tree/INSTALL)
+The `init.el` file typically does not exist by default, so you will probably have to create it! 
+
+- `~/.emacs or ~/.emacs.el` - The old location for the configuration file (not recommended!)
+- `~/.emacs.d/init.el` - The main configuration file in the Emacs config folder (recommended on macOS and Windows)
+- `~/.config/emacs/init.el` - Follows Linux desktop environment guidelines (recommended on Linux!)
+
+Emacs will look for a configuration file in each of these locations every time it starts up!
 
 ## Enable development libraries and update apt cache
 For Ubuntu >= 24.04
@@ -230,12 +226,12 @@ Change the DOOMDIR environment variable to change where Doom looks for this dire
 `git clone --depth 1 https://github.com/doomemacs/doomemacs ~/emacs-configs/.doom.d`
 `~/emacs-configs/.doom.d/bin/doom install`
 `git clone https://github.com/syl20bnr/spacemacs ~/emacs-configs/.spacemacs.d`
-`git clone https://github.com/daviwil/emacs-from-scratch.git ~/emacs-config/emacs-from-scratch`
+`git clone https://github.com/daviwil/emacs-from-scratch.git ~/emacs-configs/emacs-from-scratch`
 
 ### Setup Bootloader file
 `cp ~/dev-env-dotfiles/Editors/emacs/.emacs-profiles.el ~/.emacs-profiles.el`
 `sudo ln -sf "$PWD/Editors/emacs/.emacs-profiles.el" "${XDG_CONFIG_HOME:-$HOME/.emacs-profiles.el}"`
-
+`cp -r "$PWD/Editors/emacs/emacs-configs/.emacs.d" ~/emacs-configs`
 
 ## Emacs commands to start Emacs ddifferent ways: 
 :Q
@@ -252,10 +248,6 @@ Change the DOOMDIR environment variable to change where Doom looks for this dire
 `emacs --with-profile '((user-emacs-directory . "~/emacs-configs/.doom.d/"))'`
 `emacs --with-profile '((user-emacs-directory . "~/emacs-configs/emacs-from-scratch/"))'`
 `emacs M-x Check-parents` to find missing (){} etc.
-
-
-## Relevant Files
-Once the configuration is finished, here will come the links to the configs and eventual actual usefull guides I have used. 
 
 ## Other ways to install Emacs: 
 

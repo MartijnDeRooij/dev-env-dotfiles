@@ -92,7 +92,6 @@ C# specific for server of C
 choco install omnisharp
 choco install -y ripgrep
 choco install typescript (nodejs typescript package)
-coc.nvim 
 ```
 ## Mac
 Download:

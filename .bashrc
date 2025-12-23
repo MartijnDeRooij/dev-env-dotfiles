@@ -24,7 +24,7 @@ export BROWSER="firefox"
 export REPOS="$HOME/Repos"
 export GITUSER="MartijnDeRooij"
 export GHREPOS="$REPOS/github.com/$GITUSER"
-#export DOTFILES="$HOME/dev/001-Dev-Files/dev-env-dotfiles"
+#export DOTFILES="$HOME/dev-env-dotfiles"
 #export SCRIPTS="$DOTFILES/Scripts"
 export NOTES="$HOME/Notes"
 
