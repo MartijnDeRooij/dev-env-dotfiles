@@ -21,5 +21,17 @@ return {
         },
       },
     },
+    -- do not follow symlinks prevents $HOME recursions
+    default_component_configs = {
+      filesystem = {
+        follow_symlinks = false,
+        filtered_items = {
+          hide_by_name = {
+           "HOME",
+           "home",
+          },
+        },
+      },
+    },
   },
 }

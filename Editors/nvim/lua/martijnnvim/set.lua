@@ -26,7 +26,8 @@ vim.opt.showmode = false
 -- All undo settings for nvim
 vim.opt.swapfile = false
 vim.opt.backup = false
-vim.opt.undodir = "$HOME/.vim/undodir" -- vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+-- vim.opt.undodir = "$HOME/.vim/undodir"
+vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.opt.undofile = true
 
 -- clipboard
