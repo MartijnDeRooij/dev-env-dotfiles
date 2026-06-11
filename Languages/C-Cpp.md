@@ -20,14 +20,15 @@ sudo apt install gcc
 sudo apt-get install g++
 ```
 Use the following command to install gdb on linux machine.
-`sudo apt-get install libc6-dbg gdb valgrind`
+
+```sudo apt-get install libc6-dbg gdb valgrind```
 
 ## Windows (WSL setup)
 [WSL CPP](https://code.visualstudio.com/docs/cpp/config-wsl)
 
 `sudo apt-get install build-essential gdb`
 
-## Windows (non WSL setup)
+### Windows (non WSL setup)
 [Mingw Download](https://www.mingw-w64.org/downloads/)
 [Mingw Binaries](https://github.com/niXman/mingw-builds-binaries/releases)
 If you have anything in `C:\MinGW`, delete it.

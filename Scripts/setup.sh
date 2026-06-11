@@ -108,7 +108,6 @@ if [[ $(grep -E "^(ID|NAME)=" /etc/os-release | grep -q "ubuntu")$? == 0 ]]; the
     #sudo apt install -y --no-install-recommends \
 	#apt-transport-https dotnet-sdk-7.0 dotnet-sdk-8.0
 
-
     ## GO Setup
     # Use Go install script. 
     ### Uses package installer see languages go.md
@@ -129,22 +128,21 @@ if [[ $(grep -E "^(ID|NAME)=" /etc/os-release | grep -q "ubuntu")$? == 0 ]]; the
     #source ~/.bash_profile
     ## Latex Setup
     ### Once Again specific Installers with Download
-    sudo apt install -y --no-install-recommends \
-	perl python
+    #sudo apt install -y --no-install-recommends \
+	#perl python
 
     ## Rust Setup
-    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-    sudo source $HOME/.cargo/env #&& cargo build --release
-    . "$HOME/.cargo/env"
-    cargo install cargo-watch
+    #curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+    #sudo source $HOME/.cargo/env #&& cargo build --release
+    #. "$HOME/.cargo/env"
+    #cargo install cargo-watch
     ## Zig Setup
-    sudo snap install zig --classic --beta
+    #sudo snap install zig --classic --beta
 
-    curl -fsSL https://deb.nodesource.com/setup_21.x | sudo -E bash - &&\
-	sudo apt install -y nodejs
-  	sudo apt install -y npm
-    npm install -g markdownlint-cli
-
+    #curl -fsSL https://deb.nodesource.com/setup_21.x | sudo -E bash - &&\
+	#sudo apt install -y nodejs
+  	#sudo apt install -y npm
+    #npm install -g markdownlint-cli
 
     sudo sh -c 'echo "X11Forwarding yes" >> /etc/ssh/sshd_config'
     sudo sh -c 'echo "HOST *\n    ForwardX11 yes" >> ~/.ssh/config'
@@ -175,9 +173,9 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     ## Python Setup
     ### Use Anaconda or nothing
     ## Rust Setup
-    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+    # curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
     ## Zig Setup
-    brew install zig
+    # brew install zig
 
 fi
 # Only run this on Windows system
